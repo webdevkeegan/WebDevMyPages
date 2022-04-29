@@ -85,7 +85,7 @@ $.getJSON("data/people.json", () => {
             .done(()=>{
                 //force refresh
 
-                // location.reload();
+                location.reload();
             });
 
     });

@@ -170,8 +170,8 @@ app.post('/delete-person',(req,res)=>{
     //how to delete a service from list
     peopleList = peopleList.filter((person)=>{ //each service in the list, will stay in list if filter(service) returns True
         console.log("GIRLL app.post /delete-person"+person.name);
-        console.log("GIRLL app.post /delete-person"+req.body.name);
-        if(person.name===req.body.name){
+        console.log("GIRLL app.post /delete-person"+req.body.person);
+        if(person.name===req.body.person){
 
             return false;
         }else{
