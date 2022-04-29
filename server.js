@@ -9,6 +9,51 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + "/public"));
 
+//--------------login stuff----------------
+const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
+
+//Initialize passport
+app.use(session({
+    secret: "MyLittleSecretThatIdontWantOthersToKnow",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Configure Mongoose
+mongoose.connect('mongodb://localhost:27017/hurdlDB', {useNewUrlParser: true, useUnifiedTopology: true});
+
+const userSchema = new mongoose.Schema({
+    username: { // must use exact spelling for username so mongoose recognizes its a username
+        type: String,
+        unique: true,
+        require: true,
+        minlength: 3
+    },
+    password: {  //use exact spelling
+        type: String,
+        require: true
+    }
+})
+
+userSchema.plugin(passportLocalMongoose);
+const User = mongoose.model('User', userSchema);
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser())
+
+
+
+
+//---------------------------------------------
+
+
+
 //---------------repopulate with current values-----------------------------------------
 app.listen(3000, function () {
     console.log("server started at 3000")
@@ -205,4 +250,39 @@ app.get("/", function (req, res) {
 
 app.get("/who_we_are", function (req, res) {
     res.sendFile(__dirname+"/public/who_we_are.html");
+});
+
+//------------
+app.get('/login', (req, res) => {
+    if (req.query.error) {
+        res.redirect("/login.html?error=" + req.query.error);
+    } else {
+        res.redirect("/login.html");
+    }
+});
+
+
+app.post('/login', (req, res) => {
+    const user=new User({
+        username:req.body.username,
+        password: req.body.password
+    });
+    req.login(user, (err) => {
+        if(err) {
+            res.redirect("/login?error=database error")
+        }
+        else {
+            const authenticate = passport.authenticate('local', {
+                successRedirect:"/",
+                failureRedirect:"/login?error=username and password do not match or username does not exist"
+            })
+            authenticate(req, res);
+        }
+    })
+});
+
+
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect("/");
 });
