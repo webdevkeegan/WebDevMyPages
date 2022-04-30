@@ -174,12 +174,12 @@ app.listen(3000, function () {
 
     //everytime restart server, parse through json list
 
-    //use to edit partners -- NOT DONE YET
+    //use to edit partners
     const rawDataPartners=fs.readFileSync(__dirname+"/public/data/partnersData.json")
     partnersList=JSON.parse(rawDataPartners);
     console.log(partnersList)
 
-    //use to edit services -- DID ADD SERVICE
+    //use to edit services
     const rawDataServices=fs.readFileSync(__dirname+"/public/data/servicesProvided.json")
     servicesList=JSON.parse(rawDataServices);
     console.log(servicesList)
@@ -189,8 +189,48 @@ app.listen(3000, function () {
     peopleList=JSON.parse(rawDatapeople);
     console.log(peopleList)
 
+    //use to edit aboutUs
+    const rawDataAboutUs=fs.readFileSync(__dirname+"/public/data/aboutUs.json")
+    aboutUsList=JSON.parse(rawDataAboutUs);
+    console.log(peopleList)
+
+
 
 });
+
+//---------------edit aboutUs-----------------------------------------
+let aboutUsList=[];
+//making the form
+app.post('/new-aboutUs',(req,res)=>{
+    console.log(req.body.text_to_be_added); //prints in terminal
+
+    //make dictionary
+    const aboutUsItem={ //note: all transferred as string!
+        "description": req.body.text_to_be_added
+    }
+    aboutUsList=[];
+    aboutUsList.push(aboutUsItem) //push new service to list
+
+    //convert to json
+    const aboutUsJSON =JSON.stringify(aboutUsList);
+    // const appendItem =JSON.stringify(serviceItem);
+
+
+    //writes json string into file
+    fs.writeFile(__dirname+"/public/data/aboutUs.json", aboutUsJSON,
+        function(err){
+            //function is waiting for event
+            if(err){ //if error occurs, make note
+                console.log("JSON writing failed");
+            }else{
+
+                res.redirect('/'); //will always go to right location
+            }
+        });
+});
+//------------------------------------------------
+
+
 
 
 
@@ -406,9 +446,9 @@ app.post('/delete-partner',(req,res)=>{
 
     //how to delete a service from list
     partnersList = partnersList.filter((partner)=>{ //each service in the list, will stay in list if filter(service) returns True
-        console.log("GIRLL app.post /delete-partner"+partner.partner);
+        console.log("GIRLL app.post /delete-partner"+partner.link);
         console.log("GIRLL app.post /delete-partner"+req.body.partner);
-        if(partner.partner===req.body.partner){
+        if(partner.link===req.body.partner){
 
             return false;
         }else{
