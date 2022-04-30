@@ -1,4 +1,3 @@
-//tbd
 
 const express = require("express");
 const fs=require('fs');
@@ -9,7 +8,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + "/public"));
 
-//--------------login stuff----------------
+
+//--------------login stuff---------------------------------------------
+
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
@@ -24,9 +25,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Configure Mongoose
+//Configure Mongoose - give database name "hurdlDB"
 mongoose.connect('mongodb://localhost:27017/hurdlDB', {useNewUrlParser: true, useUnifiedTopology: true});
 
+//create user schema
 const userSchema = new mongoose.Schema({
     username: { // must use exact spelling for username so mongoose recognizes its a username
         type: String,
@@ -46,15 +48,127 @@ const User = mongoose.model('User', userSchema);
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser())
-
-
-
-
 //---------------------------------------------
 
 
 
-//---------------repopulate with current values-----------------------------------------
+
+//--------------get current user route---------------------------------------------
+
+app.get('/get_current_user', function (req,res){
+
+    //check if user is authenticated yet
+    if (req.isAuthenticated()) {
+        res.send({
+            message:"success",
+            data: req.user
+        })
+    }
+    else {
+        res.send({
+            message: "user not found",
+            data: {}
+        })
+    }
+});
+//---------------------------------------------
+
+
+
+
+//--------------get register page---------------------------------------------
+
+app.get('/register', (req, res) => {
+    if (req.query.error) {
+        res.redirect("/register.html?error=" + req.query.error);
+    } else {
+        //direct to registration page
+        res.redirect("/register.html");
+    }
+}); // returns register page
+//---------------------------------------------
+
+
+
+
+//--------------post to actually register the user---------------------------------------------
+
+// creates a new user. hashes and salts password
+app.post('/register', (req, res) => {
+    const newUser = {
+        username: req.body.username,
+    }
+    User.register(newUser, req.body.password, (err, user) => { // adds user to database checks if username is unique and stuff
+        if(err) {
+            //console.log(err);
+            res.redirect('/register/?error=' + err); //redirects to the get above, to if req.query.error
+        }
+        else {
+            //console.log(user);
+            const authenticate=passport.authenticate('local')
+            authenticate(req, res, () => {
+                res.redirect("/")
+            })
+        }
+    })
+});
+//---------------------------------------------
+
+
+
+//--------------get login page---------------------------------------------
+
+app.get('/login', (req, res) => {
+    if (req.query.error) {
+        res.redirect("/login.html?error=" + req.query.error);
+    } else {
+
+        //take them to the login page
+        res.redirect("/login.html");
+    }
+});
+//---------------------------------------------
+
+
+
+//--------------post to log the user in if they login corerctly---------------------------------------------
+
+app.post('/login', (req, res) => {
+    const user=new User({
+        username:req.body.username,
+        password: req.body.password
+    });
+    req.login(user, (err) => {
+        if(err) {
+            res.redirect("/login?error=database error")
+        }
+        else {
+            const authenticate = passport.authenticate('local', {
+                successRedirect:"/",
+                failureRedirect:"/login?error=username and password do not match or username does not exist"
+            })
+            authenticate(req, res);
+        }
+    })
+});
+//---------------------------------------------
+
+
+
+//--------------get logout page---------------------------------------------
+
+app.get('/logout', (req, res) => {
+    req.logout();
+
+    //redirect back to home page
+    res.redirect("/");
+});
+//---------------------------------------------
+
+
+
+
+//---------------repopulate json data files with current values-----------------------------------------
 app.listen(3000, function () {
     console.log("server started at 3000")
 
@@ -122,6 +236,8 @@ app.post('/new-service',(req,res)=>{
 });
 //------------------------------------------------
 
+
+
 //---------------Add new person-----------------------------------------
 
 let peopleList=[];
@@ -172,6 +288,48 @@ app.post('/new-person',(req,res)=>{
 
 //------------------------------------------------
 
+//---------------Add new partner-----------------------------------------
+let partnersList=[];
+//making the form
+app.post('/new-partner',(req,res)=>{
+    console.log(req.body.partner_to_be_added); //prints in terminal
+
+    //make dictionary
+    const partnerItem={ //note: all transferred as string!
+        "name":req.body.partner_to_be_added,
+        "link": req.body.partner_url,
+        "image": req.body.partner_logo
+    }
+
+    partnersList = partnersList.filter((partner)=>{ //make sure no duplicates, remove old service (overwrites)
+        if(partner.link===req.body.partner_url){
+            return false;
+        }else{
+            return true;
+        }
+
+    });
+
+    partnersList.push(partnerItem) //push new service to list
+
+    //convert to json
+    const partnersJSON =JSON.stringify(partnersList);
+    // const appendItem =JSON.stringify(serviceItem);
+
+
+    //writes json string into file
+    fs.writeFile(__dirname+"/public/data/partnersData.json", partnersJSON,
+        function(err){
+            //function is waiting for event
+            if(err){ //if error occurs, make note
+                console.log("JSON writing failed");
+            }else{
+
+                res.redirect('/'); //will always go to right location
+            }
+        });
+});
+//------------------------------------------------
 
 
 //-----------------delete single service-------------------------------
@@ -208,6 +366,7 @@ app.post('/delete-service',(req,res)=>{
 //------------------------------------------------
 
 
+
 //-----------------delete single person-------------------------------
 
 app.post('/delete-person',(req,res)=>{
@@ -241,8 +400,43 @@ app.post('/delete-person',(req,res)=>{
 
 //------------------------------------------------
 
+//-----------------delete single partner-------------------------------
+
+app.post('/delete-partner',(req,res)=>{
+
+    //how to delete a service from list
+    partnersList = partnersList.filter((partner)=>{ //each service in the list, will stay in list if filter(service) returns True
+        console.log("GIRLL app.post /delete-partner"+partner.partner);
+        console.log("GIRLL app.post /delete-partner"+req.body.partner);
+        if(partner.partner===req.body.partner){
+
+            return false;
+        }else{
+            return true;
+        }
+
+    });
+
+    const deletePartnersJSON = JSON.stringify(partnersList);
+
+    fs.writeFile(__dirname+"/public/data/partnersData.json", deletePartnersJSON,
+        function(err){
+            if(err){
+                console.log("File writing error")
+                console.log(err);
+            }else{ //else writing is successful
+                res.redirect("/") //send back to homepage
+            }
+        });
+
+});
+
+//------------------------------------------------
 
 
+
+
+//----------------Get welcome page------------------------------------------
 
 app.get("/", function (req, res) {
     res.sendFile(__dirname+"/public/index_welcome.html");
@@ -251,38 +445,5 @@ app.get("/", function (req, res) {
 app.get("/who_we_are", function (req, res) {
     res.sendFile(__dirname+"/public/who_we_are.html");
 });
-
 //------------
-app.get('/login', (req, res) => {
-    if (req.query.error) {
-        res.redirect("/login.html?error=" + req.query.error);
-    } else {
-        res.redirect("/login.html");
-    }
-});
 
-
-app.post('/login', (req, res) => {
-    const user=new User({
-        username:req.body.username,
-        password: req.body.password
-    });
-    req.login(user, (err) => {
-        if(err) {
-            res.redirect("/login?error=database error")
-        }
-        else {
-            const authenticate = passport.authenticate('local', {
-                successRedirect:"/",
-                failureRedirect:"/login?error=username and password do not match or username does not exist"
-            })
-            authenticate(req, res);
-        }
-    })
-});
-
-
-app.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect("/");
-});

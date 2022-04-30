@@ -1,14 +1,18 @@
 [
   {
+    "name": "cgiar",
     "link": "https://ccafs.cgiar.org/",
     "image": "https://ccafs.cgiar.org/themes/custom/ccafs/logo-white.svg"
   },  {
+  "name": "climatecentre",
   "link": "https://www.climatecentre.org/",
   "image": "https://www.climatecentre.org/wp-content/themes/cc/assets/images/logo.svg"
 },  {
+  "name": "climateservices",
   "link": "https://climate-services.org/",
   "image": "https://climate-services.org/wp-content/uploads/2015/09/logo.png"
 }, {
+  "name": "iricolumbia",
   "link": "https://iri.columbia.edu/",
   "image": "https://iri.columbia.edu/wp-content/themes/iri/assets/images/logo-iri-large.png"
 }
