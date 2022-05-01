@@ -95,3 +95,20 @@ $.getJSON("data/partnersData.json", () => {
 
 
 });
+
+//-----------------------------------------------------------------
+
+$(document).ready(() => {
+    $.getJSON('/get_current_user').done((data) => {
+        console.log(data.message)
+        if (data.message === 'success') {
+            $('#login').remove()
+        }
+        else {
+            $('#logout').remove();
+            $('.hide').each(function() {
+                $(this).remove();
+            })
+        }
+    })
+})

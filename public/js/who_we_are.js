@@ -7,11 +7,9 @@ function get_service_obj(service) {
               <div class="serviced-body">
                 <h5 class="serviced-title ">${service.service}</h5>
                 <p class="serviced-text">${service.description}</p>
-                <button class="btn btn-sm btn-danger delete_btn_service col-auto " 
+                <button class="btn btn-sm btn-danger delete_btn_service col-auto hide" 
             value='${JSON.stringify(service)}'>Delete service</button>
-              </div>
-               <!--    //make delete button for each message-->
-              
+              </div>              
             </div>
            
             </div>
@@ -27,7 +25,7 @@ function get_person_obj(person) {
                 <h3 class="serviced-text">${person.title}</h3>
                 <h5 class="serviced-text">${person.department}</h5>
                 <p class="serviced-text">${person.contact}</p>
-                <button class="btn btn-sm btn-danger delete_btn_person col-auto " 
+                <button class="btn btn-sm btn-danger delete_btn_person col-auto hide" 
             value='${JSON.stringify(person)}'>Delete person</button>
                     <!--INCLUDE POPUP HERE-->
               </div>
@@ -94,3 +92,18 @@ $.getJSON("data/people.json", () => {
 
 });
 //-----------------------------------------------------------------
+
+$(document).ready(() => {
+    $.getJSON('/get_current_user').done((data) => {
+        console.log(data.message)
+        if (data.message === 'success') {
+            $('#login').remove()
+        }
+        else {
+            $('#logout').remove();
+            $('.hide').each(function() {
+                $(this).remove();
+            })
+        }
+    })
+})

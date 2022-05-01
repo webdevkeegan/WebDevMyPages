@@ -90,9 +90,9 @@
 </section>
 
 <section id="aboutus">
-<!--    <button class="btn btn-sm btn-danger edit_btn_aboutUs col-auto "-->
-<!--            value='${JSON.stringify(text)}'>Edit blurb</button>-->
-    <a href="edit_aboutUs.html" class="btn edit_btn_aboutUs btn-success">Edit blurb</a>
+
+<!--    hide this unless a user is logged in -->
+    <a href="edit_aboutUs.html" class="btn edit_btn_aboutUs btn-success hide">Edit blurb</a>
 
     <div class="row">
         <div class="col-lg-5 mt-md-12 col-sm-12  offwhite_background px-3 makeRoundTop">
@@ -116,13 +116,29 @@
 <br>
 <section id="partners">
     <div class="d-flex justify-content-end" style="padding-top: 20px">
-        <a href="edit_partners.html" class="btn btn-success">Add a partner</a>
+        <a href="edit_partners.html" class="btn btn-success hide">Add a partner</a>
     </div>
     <div id="partnerGrid" class="row row-cols-3 red_background">
 
     </div>
 
 </section>
+
+<footer class="text-center text-lg-start red_background">
+    <div class="text-center" >
+        <a class="text-light" href="https://hurdl.org/">© 2020 Copyright: HURDL</a>
+        <a class="text-dark" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+        ></a>
+    </div>
+    <div class="text-center">
+        <a class="text-light" id='login' href="login.html">Login</a>
+        <a class="text-light hide" id='logout' href="/logout">Logout</a>
+    </div>
+    <div class="text-center">
+        <a class="text-light" id='register' href="/register">Register a new editor</a>
+    </div>
+</footer>
 
 
 </body>
