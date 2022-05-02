@@ -73,12 +73,23 @@ app.get('/get_current_user', function (req, res) {
 
 
 //--------------get register page---------------------------------------------
+// app.get('/register', (req, res) => {
+//     if (req.query.error) {
+//         res.redirect("/register.html?error=" + req.query.error);
+//     } else {
+//         //direct to registration page
+//         res.redirect("/register.html");
+//     }
+// }); // returns register page
+
 app.get('/register', (req, res) => {
-    if (req.query.error) {
-        res.redirect("/register.html?error=" + req.query.error);
-    } else {
-        //direct to registration page
-        res.redirect("/register.html");
+    if (req.isAuthenticated()) {
+        res.sendFile(__dirname + '/src/register.html')
+    }
+        // if (req.query.error) {
+    //     res.redirect("/register.html?error=" + req.query.error);
+    else {
+        res.redirect("/login");
     }
 }); // returns register page
 
@@ -183,6 +194,23 @@ app.listen(3000, function () {
 });
 
 //---------------edit aboutUs-----------------------------------------
+
+//--------------get methods for editing aboutUs--------------
+app.get("/new-aboutUs", (req, res) => {
+    // const id = req.query.id;
+    // console.log(req.query)
+    if (req.isAuthenticated()) {
+        // console.log("authenticated")
+        //res.sendFile(__dirname + "/src/edit_proj.html?proj=" + id);
+        res.sendFile(__dirname + "/src/edit_aboutUs.html");
+    } else {
+        res.redirect("/login")
+    }
+    // const past = pastProjects.find(proj => proj.id === id)
+})
+
+
+
 let aboutUsList = [];
 //making the form
 app.post('/new-aboutUs', (req, res) => {
@@ -216,6 +244,24 @@ app.post('/new-aboutUs', (req, res) => {
 
 
 //---------------Add new service-----------------------------------------
+
+//--------------get methods for editing service--------------
+app.get("/new-service", (req, res) => {
+    // const id = req.query.id;
+    // console.log(req.query)
+    if (req.isAuthenticated()) {
+        // console.log("authenticated")
+        //res.sendFile(__dirname + "/src/edit_proj.html?proj=" + id);
+        res.sendFile(__dirname + "/src/edit_who_we_are_services.html");
+    } else {
+        res.redirect("/login")
+    }
+    // const past = pastProjects.find(proj => proj.id === id)
+})
+
+
+
+
 let servicesList = [];
 //making the form
 app.post('/new-service', (req, res) => {
@@ -259,6 +305,21 @@ app.post('/new-service', (req, res) => {
 
 
 //---------------Add new person-----------------------------------------
+
+//--------------get methods for editing person--------------
+app.get("/new-person", (req, res) => {
+    // const id = req.query.id;
+    // console.log(req.query)
+    if (req.isAuthenticated()) {
+        // console.log("authenticated")
+        //res.sendFile(__dirname + "/src/edit_proj.html?proj=" + id);
+        res.sendFile(__dirname + "/src/edit_who_we_are_people.html");
+    } else {
+        res.redirect("/login")
+    }
+    // const past = pastProjects.find(proj => proj.id === id)
+})
+
 
 let peopleList = [];
 //making the form
@@ -309,6 +370,22 @@ app.post('/new-person', (req, res) => {
 //------------------------------------------------
 
 //---------------Add new partner-----------------------------------------
+
+//--------------get methods for editing partner--------------
+app.get("/new-partner", (req, res) => {
+    // const id = req.query.id;
+    // console.log(req.query)
+    if (req.isAuthenticated()) {
+        // console.log("authenticated")
+        //res.sendFile(__dirname + "/src/edit_proj.html?proj=" + id);
+        res.sendFile(__dirname + "/src/edit_partners.html");
+    } else {
+        res.redirect("/login")
+    }
+    // const past = pastProjects.find(proj => proj.id === id)
+})
+
+
 let partnersList = [];
 //making the form
 app.post('/new-partner', (req, res) => {
@@ -453,6 +530,55 @@ app.post('/delete-partner', (req, res) => {
 //------------------------------------------------
 
 
+let person_id = ''
+app.post("/set_person_id", (req, res) => {
+    person_id = req.body.personName;
+    // console.log("proj id at set, equals: " + proj_id)
+    res.send({message: "success", id: person_id})
+
+})
+app.get("/send_person_id", (req, res) => {
+        // console.log("proj id at send get equals: " + proj_id)
+        res.send({message: "success", id: person_id})
+        //console.log(pub_dis_id)
+
+    // const id = req.query.id;
+    //
+    // const person = peopleList.find(person => person.name === id)
+    // console.log(person)
+    // if (person !== undefined) {
+    //     res.send({
+    //         "message": "success",
+    //         "person": person
+    //     })
+    // } else {
+    //     res.send({
+    //         "message": "error",
+    //         "event": {}
+    //     })
+    // }
+})
+
+app.get("/get_person_id", (req, res) => {
+
+    const id = req.query.id;
+
+    const person = peopleList.find(person => person.name === id)
+    console.log("in server.js: /get_person_id ")
+    console.log(person)
+    if (person !== undefined) {
+        res.send({
+            "message": "success",
+            "person": person
+        })
+    } else {
+        res.send({
+            "message": "error",
+            "person": {}
+        })
+    }
+})
+
 //----------------Get welcome page------------------------------------------
 
 app.get("/", function (req, res) {
@@ -463,4 +589,9 @@ app.get("/who_we_are", function (req, res) {
     res.sendFile(__dirname + "/public/who_we_are.html");
 });
 //------------
+
+
+
+
+
 

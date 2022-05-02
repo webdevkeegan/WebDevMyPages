@@ -1,13 +1,19 @@
 $('#servicesGrid').empty();
 
 function get_service_obj(service) {
-    return `<div class="col mb-2">
+    return `<div class="col mb-2" data-l="${service.service}">
 
             <div class="card col mb-2 pt-3 serviced text-center h-100 border-info">
               <div class="serviced-body">
                 <h5 class="serviced-title ">${service.service}</h5>
                 <p class="serviced-text">${service.description}</p>
-                <button class="btn btn-sm btn-danger delete_btn_service col-auto hide" 
+                
+<!--                edit button-->
+                <button class="btn btn-sm btn-primary edit_btn_service col-auto hide" data-l="${service.service}" 
+            value='${JSON.stringify(service)}'>Edit service</button>
+            
+<!--                delete button-->
+                <button class="btn btn-sm btn-danger delete_btn_service col-auto hide" data-l="${service.service}"
             value='${JSON.stringify(service)}'>Delete service</button>
               </div>              
             </div>
@@ -17,7 +23,7 @@ function get_service_obj(service) {
 }
 
 function get_person_obj(person) {
-    return `<div class="col mb-2">
+    return `<div class="col mb-2" data-l="${person.contact}">
             <div class="card serviced text-center h-100">
             <img class="serviced-img-top" src=${person.profile_picture} alt="profile picture">
               <div class="serviced-body">
@@ -25,9 +31,14 @@ function get_person_obj(person) {
                 <h3 class="serviced-text">${person.title}</h3>
                 <h5 class="serviced-text">${person.department}</h5>
                 <p class="serviced-text">${person.contact}</p>
-                <button class="btn btn-sm btn-danger delete_btn_person col-auto hide" 
+                
+<!--                edit button-->
+                <button class="btn btn-sm btn-primary edit_btn_person col-auto hide" data-l="${person.contact}"
+            value='${JSON.stringify(person)}'>Edit person</button>
+                            
+<!--                delete button-->
+                <button class="btn btn-sm btn-danger delete_btn_person col-auto hide" data-l="${person.contact}"
             value='${JSON.stringify(person)}'>Delete person</button>
-                    <!--INCLUDE POPUP HERE-->
               </div>
               
             </div></div>
@@ -87,6 +98,21 @@ $.getJSON("data/people.json", () => {
             });
 
     });
+
+    //prefill form with already entered info if edit button clicked
+    $('.edit_btn_person').on('click', function () {
+        // console.log($(this).attr('value'));
+        const person = JSON.parse($(this).attr('value')); //convert to obj
+
+        //sends person's name as id
+        $.post('/set_person_id', {personName: person.name}).done((data) => {
+            if (data.message === "success") {
+                location.href = "/new-person"
+            }
+        })
+    })
+
+
 
 
 

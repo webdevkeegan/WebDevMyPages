@@ -44,3 +44,42 @@ $(document).ready(function() {
         }
     });
 });
+
+//-----------------
+function load_person(person) {
+    person = JSON.parse(person);
+    console.log("in load_person"+person)
+    $('#person_to_be_added').val(person.name);
+    $('#department_to_be_added').val(person.title);
+    $('#title_to_be_added').val(person.department);
+    $('#contact_to_be_added').val(person.contact);
+    $('#picture_to_be_added').val(person.profile_picture);
+    $('#bio_to_be_added').val(person.bio);
+
+}
+
+//--------------------
+
+
+let id = ''
+$(document).ready(() => {
+
+    $.get('/send_person_id').done((data) => {
+        id = data.id //where id is person's name
+        console.log("in /send_person_id:")
+        console.log(id)
+        if(id !== "") {
+            $.getJSON('/get_person_id?id=' + id)
+                .done((data) => {
+                    console.log("in /get_person_id?id=:")
+                    console.log(data)
+
+                    if (data.message === "success") {
+                        const person = JSON.stringify(data.person);
+                        console.log(person)
+                        load_person(person)
+                    }
+                })
+        }
+    })
+});
