@@ -4,8 +4,15 @@ $('#partnerGrid').empty();
 
 function get_partner_obj(partner) {
     return `<div class="col-md-3 imgDiv mx-auto d-flex align-self-center" >
+
+<!--delete button-->
                 <div class="col"><button class="btn btn-sm btn-danger delete_btn_partner col-auto " 
             value='${JSON.stringify(partner)}'>Delete partner</button></div>
+            
+<!--                edit button-->
+                <button class="btn btn-sm btn-primary edit_btn_partner col-auto hide" data-l="${partner.link}" 
+            value='${JSON.stringify(partner)}'>Edit partner</button>
+            
             <div class="row">
                 <img class="partner_poster" data-p="${partner.link}" src="${partner.image}">
                 </div>
@@ -57,6 +64,18 @@ $.getJSON("data/aboutUs.json", () => {
             });
 
     });
+    //prefill form with already entered info if edit button clicked
+    // $('.edit_btn_aboutUs').on('click', function () {
+    //     // console.log($(this).attr('value'));
+    //     const aboutUs = JSON.parse($(this).attr('value')); //convert to obj
+    //
+    //     //sends person's name as id
+    //     $.post('/set_aboutUs_id', {aboutUsDescrip: aboutUs.description}).done((data) => {
+    //         if (data.message === "success") {
+    //             location.href = "/new-aboutUs"
+    //         }
+    //     })
+    // })
 
 });
 //--------------------------------------------------------------
@@ -91,6 +110,19 @@ $.getJSON("data/partnersData.json", () => {
                 location.reload();
             });
 
+    });
+
+    //prefill form with already entered info if edit button clicked
+    $('.edit_btn_partner').on('click', function () {
+        // console.log($(this).attr('value'));
+        const partner = JSON.parse($(this).attr('value')); //convert to obj
+
+        //sends partner's name as link
+        $.post('/set_partner_id', {partnerName: partner.link}).done((data) => {
+            if (data.message === "success") {
+                location.href = "/new-partner"
+            }
+        })
     });
 
 

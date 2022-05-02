@@ -598,6 +598,45 @@ app.get("/get_service_id", (req, res) => {
 })
 //------------------------------------------------
 
+
+//--------------EDIT partner - pre-fill form----------------------------------
+
+let partner_id = ''
+app.post("/set_partner_id", (req, res) => {
+    partner_id = req.body.partnerName;
+    // console.log("proj id at set, equals: " + proj_id)
+    res.send({message: "success", id: partner_id})
+
+})
+app.get("/send_partner_id", (req, res) => {
+    // console.log("proj id at send get equals: " + proj_id)
+    res.send({message: "success", id: partner_id})
+
+})
+
+app.get("/get_partner_id", (req, res) => {
+
+    const id = req.query.id;
+
+    const partner = partnersList.find(partner => partner.link === id)
+    console.log("in server.js: /get_partner_id ")
+    console.log(partner)
+    if (partner !== undefined) {
+        res.send({
+            "message": "success",
+            "partner": partner
+        })
+    } else {
+        res.send({
+            "message": "error",
+            "partner": {}
+        })
+    }
+})
+//------------------------------------------------
+
+
+
 //----------------Get welcome page------------------------------------------
 
 app.get("/", function (req, res) {

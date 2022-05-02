@@ -123,7 +123,7 @@ $.getJSON("data/people.json", () => {
                 location.href = "/new-person"
             }
         })
-    })
+    });
 
 
 

@@ -26,3 +26,41 @@ $(document).ready(function() {
         }
     });
 });
+
+
+//-------EDITING BUTTON FOR PARTNER
+
+function load_partner(partner) {
+    partner = JSON.parse(partner);
+    console.log("in load_partner"+partner)
+    $('#partner_to_be_added').val(partner.name);
+    $('#partner_url').val(partner.link);
+    $('#partner_logo').val(partner.image);
+
+}
+
+//--------------------
+
+
+let id = ''
+$(document).ready(() => {
+
+    $.get('/send_partner_id').done((data) => {
+        id = data.id //where id is service's name
+        console.log("in /send_partner_id:")
+        console.log(id)
+        if(id !== "") {
+            $.getJSON('/get_partner_id?id=' + id)
+                .done((data) => {
+                    console.log("in /get_partner_id?id=:")
+                    console.log(data)
+
+                    if (data.message === "success") {
+                        const partner = JSON.stringify(data.partner);
+                        console.log(partner)
+                        load_partner(partner)
+                    }
+                })
+        }
+    })
+});
