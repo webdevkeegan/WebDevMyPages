@@ -1,0 +1,234 @@
+[
+  {
+    "name": "ANTICIPATORY HUMANITARIAN ASSISTANCE: FROM VULNERABILITY ASSESSMENTS TO ADAPTIVE ACTION",
+    "description": "Paste description for ANTICIPATORY HUMANITARIAN ASSISTANCE here",
+    "location": "Kasaya, Zambia",
+    "cur": "past",
+    "images": [
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0092-1024x683.jpg",
+        "description": "Flooding near Kasaya"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0095-1024x683.jpg",
+        "description":  "Moono from the Zambia Red Cross looks at a flooded road in Kazungula"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_01301-1024x683.jpg",
+        "description": "Daniel interviews a woman who lives in Kasaya during pilot fieldwork"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0368-1024x683.jpg",
+        "description": "Friend of HURDL Arielle Tozier de la Poterie (University of Colorado – Boulder) interviews a woman in Kasaya during pilot fieldwork"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0401-1024x683.jpg",
+        "description":  "Ed interviews a man in Kasaya during pilot fieldwork"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_7160-1024x768.jpg",
+        "description": "Sometimes in a downpour, you just have to meet the community leaders in the back of your truck"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_7092-1024x768.jpg",
+        "description": "Family house in Kasaya"}
+    ],
+    "report": "",
+    "secondary_link": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"},
+      {"name":  "Kalifa Traore", "role": "IER"},
+      {"name": "Cisse", "role": "IER"},
+      {"name":  "Tshi Tshi Kalala", "role": "?"},
+      {"name":  "Kwame Owusu-Daaku", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  },
+  {
+    "name": "ASSESSING MALI’S AGROMETEOROLOGICAL ADVISORY PROGRAM",
+    "description": "It seems self-evident that delivering weather and climate information to farmers would in some way help them plan and execute their agricultural activities in more effective manners.\n\nIt’s not that easy.\n\nWhat information should be delivered? What information do farmers need? Which farmers need what information? Which farmers can use the information? How might we deliver the information? What science should be used to build the information given to farmers? What if the science isn’t particularly good? Any effort to deliver weather and climate information to farmers has to address all of these questions, and many others, to deliver a useful product. As it turns out, most of these questions have not yet been answered in the Global South, raising barriers to the effective delivery of weather and climate information to farmers. HURDL is working on changing that.\n\nSince 2011, Ed Carr and HURDL staff have been directing an assessment of a climate services for development success story, the Mali Agrometeorological Advisory Program. Started in the early 1980s during a period of severe drought and food shortage, the advisory program was an emergency response, an effort to provide something to farmers that might result in improved yields and relief from food insecurity. The initial pilot of this program was closely monitored, and when it produced positive results, it was rapidly scaled up across the country. However, the impact and function of the program have not been assessed in more than 25 years.\n\nIn an effort to assess the efficacy of the program, and better understand how it works on the ground, Carr worked with colleagues across several institutions to design and implement an initial assessment of the program. Colleagues at IRI focused on assessing the advisories issued by the Malian Meteorological Service, including the science behind the advisories, to assess the quality of the advisories and identify gaps that might be filled to improve these advisories. Carr worked with colleagues at ICRISAT, IER, and Stratus Consulting to design and implement a field assessment to assess and understand project use and impact at the farmer level. This assessment visited 36 villages across Southern Mali, conducting 144 focus groups and interviews with 720 farmers, in an effort to understand if and how farmers were using the advisories. Carr, supported by staff at Stratus Consulting and HURDL students Tshi Tshi Kalala and Kwame Owusu-Daaku, analyzed this data, and then edited the preliminary report on the assessment.\n\nFrom May to July of 2014, a team of HURDL researchers worked with IER and ICRISAT/CCAFS to conduct ethnographic fieldwork in four representative villages in Southern Mali to explain the patterns of use (and non-use) revealed in the preliminary report. The fieldwork yielded more than 200 interviews and maps of fields, as well as fieldnotes on observations from life in these villages as residents made planting decisions. HURDL is still analyzing this data, but expects to put out a final report by the end of April, 2015.",
+    "location": "Mali",
+    "cur": "past",
+    "images": [
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0823-1024x683.jpg",
+        "description": "Field team classroom training at ICRISAT outside Bamako, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_10152-1024x683.jpg",
+        "description":  "Tshitshi with one of the men who keeps the rain gauge in Kéniéroba, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_09711-1024x683.jpg",
+        "description": "Cisse, of the IER field team, interviews a senior farmer in Kéniéroba, Mali"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_09361-1024x683.jpg",
+        "description": "Debriefing during field pilot session at Kéniéroba, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0928-1024x683.jpg",
+        "description":  "Ed and Kalifa Traore of IER at work during pilot work in Kéniéroba, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0924-1024x683.jpg",
+        "description": "Kéniéroba, Mali"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0890-1024x683.jpg",
+        "description": "A view of the pilot region south of Bamako, from the Siby Hills"}
+    ],
+    "report": "https://pdf.usaid.gov/pdf_docs/PA00JZ3M.pdf",
+    "report2": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"},
+      {"name":  "Kalifa Traore", "role": "IER"},
+      {"name": "Cisse", "role": "IER"},
+      {"name":  "Tshi Tshi Kalala", "role": "?"},
+      {"name":  "Kwame Owusu-Daaku", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  },
+  {
+    "name": "GENDER AND CLIMATE CHANGE ADAPTATION IN AGRARIAN SETTINGS: RESEARCH AND IMPLEMENTATION",
+    "description": "The impacts of climate variability and change on agrarian populations in the Global South are becoming clearer all the time. These impacts, however, are not evenly distributed across these populations. Because different members of these communities engage in different livelihoods activities, have different access to livelihoods resources, and different expectations with regard to their livelihoods roles, exposure to the same shock or stress can produce highly variable vulnerabilities within communities or even households. If we cannot identify and address these different vulnerabilities, we are unlikely to design and implement adaptation interventions that mitigate the negative impacts of climate variability and change.\n\nOne means of identifying these different vulnerabilities is through gender analysis. Already a requirement of programming at USAID, gender analysis has done a great deal to highlight the different ways in which men and women experience and negotiate the shocks and stresses produced by climate variability and change. However, not all gender analyses are equal. Most contemporary work on identity recognizes gender as a social category that gains meaning through its intersection with other categories such as age, class, race, or ethnicity. In short, we are never simply “men” or “women” – we are always more complicated. In the course of a day, a man might find himself among students, where he is identified and treated with the deference due to an older man, at a bar where he is surrounded by people of a different ethnicity that highlights his identity as an Ashanti Man, and later at his parent’s house, where he is an eldest son who shows deference to his father. In each of these roles, the same person experiences different capacities to speak and act, and different expectations of his speech and actions by others.\n\nThis is not merely an academic quibble about identity. As an extensive literature on gender and development has already made clear, simply dividing a population into men and women and then assessing the different opportunities and challenges associated with each group is likely to overlook the challenges and opportunities of some members of the population – often the most marginal and vulnerable. Working with USAID’s Office of Gender Equality and Women’s Empowerment (GENDEV) and the Office of Global Climate Change (GCC), the HURDL team is working to design and promote gender assessments that better capture the complex reality of the lives of the global poor.\n\nHURDL has already produced a large report on gender and adaptation for USAID. This report briefly reviews the literature on gender and adaptation. However, the principle focus of the report is on three empirical case studies that illustrate how simple binary (man vs. woman) gender analysis misses the vulnerabilities and opportunities associated with many women. HURDL has expanded and edited the literature review, and published it in Geography Compass.\n\nOver the next year, HURDL will work with GENDEV and GCC to design and implement pilot gender assessments following the recommendations of this report. The goal of these pilot assessments are threefold:\n\n 1) to inform the design of mission-led projects, ideally resulting in improved design and outcomes\n 2) to demonstrate the efficacy of this approach to gender analysis in the project design process\n 3) to learn how best to implement such assessments in the context of mission and implementer expectations and demands.",
+    "location": "Zambia",
+    "cur": "past",
+    "images": [
+      {"url": "data:image/jpeg;base64,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",
+        "description": "description 1"
+      }
+    ],
+    "report": "",
+    "secondary_link": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  },
+  {
+    "name": "DESIGN AND MONITORING/EVALUATION SUPPORT FOR THE KAFFRINE (SENEGAL) CLIMATE SERVICES PROGRAM",
+    "description": "Our colleagues at CCAFS have piloted a climate services for farmers program in Kaffrine, Senegal. In 2013, the HURDL team coordinated with CCAFS to help lay the groundwork for project design, including project monitoring and evaluation. Carr and Kalala field tested the LAG approach in May, tailoring it to the context of Kaffrine. Kalala then implemented the approach between late May and late July, exploring the livelihoods strategies, and agricultural decision-making, of farmers in a representative village in Kaffrine. The HURDL team, working with Dave Letson at the University of Miami, is building an understanding of livelihoods decision-making from this data that will help to identify the various information needs of farmers in Kaffrine, and thus serve to inform the design of climate services for these farmers.\n\nHURDL is working closely with CCAFS to provide the necessary tools for CCAFS staff and their Senegalese partners to take up the LAG approach and further the information-gathering needed for project design, as well as use the information gathered through the approach to develop relevant, informative monitoring and evaluation tools for the project as it moves to implementation.",
+    "location": "Kaffrine, Senegal",
+    "cur": "past",
+    "images": [
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_01941-1024x683.jpg",
+        "description": "Tshitshi Kalala (second from right) interviews a farmer in Kaffrine about his agricultural decisions."
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_02472-1024x683.jpg",
+        "description":  "Several CCAFS, CSP, and HURDL staff interview a woman about her agricultural decisions."
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0215-1024x683.jpg",
+        "description": "The Kaffrine field team: Ed, Habib, Ndongo Baba, Seck, Tshitshi"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_01941-1024x683.jpg",
+        "description": "Tshitshi Kalala (second from right) interviews a farmer in Kaffrine about his agricultural decisions."
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_00991-1024x683.jpg",
+        "description":  "Late afternoon in the Sahel in May…its still about 40C (104F) out"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_01502-1024x683.jpg",
+        "description": "Ed, Habib, and Ndongo Baba with the chief of a village in Kaffrine"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0130-1024x683.jpg",
+        "description": "Pretty much everything is blasted by the heat in May, and it is difficult to prepare fields for planting."},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0119-1024x683.jpg",
+        "description": "Mid-day in Kaffrine in May. It’s very dry, but over 45C (115F) in the sun."}
+    ],
+    "report": "https://pdf.usaid.gov/pdf_docs/PA00JZ3M.pdf",
+    "secondary_link": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"},
+      {"name": "Tshitshi Kalala", "role": "?"},
+      {"name": "Ndongo Baba", "role": "?"},
+      {"name": "Habib", "role": "?"},
+      {"name": "Seck", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  },
+  {
+    "name": "ASSESSING MALI’S AGROMETEOROLOGICAL ADVISORY PROGRAM test",
+    "description": "It seems self-evident that delivering weather and climate information to farmers would in some way help them plan and execute their agricultural activities in more effective manners.\n\nIt’s not that easy.\n\nWhat information should be delivered? What information do farmers need? Which farmers need what information? Which farmers can use the information? How might we deliver the information? What science should be used to build the information given to farmers? What if the science isn’t particularly good? Any effort to deliver weather and climate information to farmers has to address all of these questions, and many others, to deliver a useful product. As it turns out, most of these questions have not yet been answered in the Global South, raising barriers to the effective delivery of weather and climate information to farmers. HURDL is working on changing that.\n\nSince 2011, Ed Carr and HURDL staff have been directing an assessment of a climate services for development success story, the Mali Agrometeorological Advisory Program. Started in the early 1980s during a period of severe drought and food shortage, the advisory program was an emergency response, an effort to provide something to farmers that might result in improved yields and relief from food insecurity. The initial pilot of this program was closely monitored, and when it produced positive results, it was rapidly scaled up across the country. However, the impact and function of the program have not been assessed in more than 25 years.\n\nIn an effort to assess the efficacy of the program, and better understand how it works on the ground, Carr worked with colleagues across several institutions to design and implement an initial assessment of the program. Colleagues at IRI focused on assessing the advisories issued by the Malian Meteorological Service, including the science behind the advisories, to assess the quality of the advisories and identify gaps that might be filled to improve these advisories. Carr worked with colleagues at ICRISAT, IER, and Stratus Consulting to design and implement a field assessment to assess and understand project use and impact at the farmer level. This assessment visited 36 villages across Southern Mali, conducting 144 focus groups and interviews with 720 farmers, in an effort to understand if and how farmers were using the advisories. Carr, supported by staff at Stratus Consulting and HURDL students Tshi Tshi Kalala and Kwame Owusu-Daaku, analyzed this data, and then edited the preliminary report on the assessment.\n\nFrom May to July of 2014, a team of HURDL researchers worked with IER and ICRISAT/CCAFS to conduct ethnographic fieldwork in four representative villages in Southern Mali to explain the patterns of use (and non-use) revealed in the preliminary report. The fieldwork yielded more than 200 interviews and maps of fields, as well as fieldnotes on observations from life in these villages as residents made planting decisions. HURDL is still analyzing this data, but expects to put out a final report by the end of April, 2015.",
+    "location": "Mali",
+    "cur": "past",
+    "images": [
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0823-1024x683.jpg",
+        "description": "Field team classroom training at ICRISAT outside Bamako, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_10152-1024x683.jpg",
+        "description":  "Tshitshi with one of the men who keeps the rain gauge in Kéniéroba, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_09711-1024x683.jpg",
+        "description": "Cisse, of the IER field team, interviews a senior farmer in Kéniéroba, Mali"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_09361-1024x683.jpg",
+        "description": "Debriefing during field pilot session at Kéniéroba, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0928-1024x683.jpg",
+        "description":  "Ed and Kalifa Traore of IER at work during pilot work in Kéniéroba, Mali"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0924-1024x683.jpg",
+        "description": "Kéniéroba, Mali"},
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0890-1024x683.jpg",
+        "description": "A view of the pilot region south of Bamako, from the Siby Hills"}
+    ],
+    "report": "https://pdf.usaid.gov/pdf_docs/PA00JZ3M.pdf",
+    "report2": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"},
+      {"name":  "Kalifa Traore", "role": "IER"},
+      {"name": "Cisse", "role": "IER"},
+      {"name":  "Tshi Tshi Kalala", "role": "?"},
+      {"name":  "Kwame Owusu-Daaku", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  },
+  {
+    "name": "test proj 1",
+    "description": "xxxdgjnsdoiWDPFINEOVOENROEARFWRFCSDFSDFDS",
+    "location": "Kasaya, Zambia",
+    "cur": "past",
+    "images": [
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0092-1024x683.jpg",
+        "description": "Flooding near Kasaya"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0095-1024x683.jpg",
+        "description":  "Moono from the Zambia Red Cross looks at a flooded road in Kazungula"
+      }
+    ],
+    "report": "",
+    "secondary_link": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"},
+      {"name":  "Kalifa Traore", "role": "IER"},
+      {"name": "Cisse", "role": "IER"},
+      {"name":  "Tshi Tshi Kalala", "role": "?"},
+      {"name":  "Kwame Owusu-Daaku", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  },
+  {
+    "name": "test proj 2",
+    "description": "dsfjahfoaiefnaeoicneorgiaefnoadviownervesdfouerfawdksme",
+    "location": "Kasaya, Zambia",
+    "cur": "past",
+    "images": [
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0092-1024x683.jpg",
+        "description": "Flooding near Kasaya"
+      },
+      {"url": "http://www.hurdl.org/wp-content/uploads/2014/12/IMG_0095-1024x683.jpg",
+        "description":  "Moono from the Zambia Red Cross looks at a flooded road in Kazungula"
+      }
+    ],
+    "report": "",
+    "secondary_link": "",
+    "report3": "",
+    "staff": [
+      {"name": "Ed Carr", "role": "?"},
+      {"name":  "Kalifa Traore", "role": "IER"},
+      {"name": "Cisse", "role": "IER"},
+      {"name":  "Tshi Tshi Kalala", "role": "?"},
+      {"name":  "Kwame Owusu-Daaku", "role": "?"}
+    ],
+    "partners": [
+      {"url": "x", "logo": "y"}
+    ]
+  }
+]

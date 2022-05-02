@@ -165,6 +165,15 @@ app.get('/logout', (req, res) => {
 
 
 //---------------repopulate json data files with current values-----------------------------------------
+
+//below is alana's lists
+let pastProjects = [];
+let curProjects = [];
+let events = [];
+let pubs = [];
+let dists = [];
+
+
 app.listen(3000, function () {
     console.log("server started at 3000")
 
@@ -189,6 +198,25 @@ app.listen(3000, function () {
     const rawDataAboutUs = fs.readFileSync(__dirname + "/public/data/aboutUs.json")
     aboutUsList = JSON.parse(rawDataAboutUs);
     console.log(peopleList)
+
+    ///////**************ALANA SERVER********************************/////
+
+// initializing data
+
+    console.log("Alana - server started at 3000")
+    const rawData = fs.readFileSync(__dirname + "/public/data/currentProj2.json");
+    curProjects = JSON.parse(rawData);
+    const rawDataPast = fs.readFileSync(__dirname + "/public/data/pastProj.json");
+    pastProjects = JSON.parse(rawDataPast);
+    const rawEvents = fs.readFileSync(__dirname + "/public/data/events.json")
+    events = JSON.parse(rawEvents)
+    const rawPubs = fs.readFileSync(__dirname + "/public/data/pubs.json")
+    pubs = JSON.parse(rawPubs)
+    const rawDists = fs.readFileSync(__dirname + "/public/data/dissertations.json")
+    dists = JSON.parse(rawDists)
+    // console.log(pubs)
+
+//--------------************end of alana listen stuff**************-----------------
 
 
 });
@@ -648,8 +676,449 @@ app.get("/who_we_are", function (req, res) {
 });
 //------------
 
+///////**************ALANA********************************/////
+
+// what we do
+// projects
+app.get('/get_proj_by_id', function (req, res) {
+    const id = req.query.id;
+
+    const past = pastProjects.find(proj => proj.name === id)
+    const cur = curProjects.find(proj => proj.name === id)
+    if (cur !== undefined) {
+        res.send({
+            "message": "success",
+            "proj": cur
+        })
+    } else if (past !== undefined) {
+        res.send({
+            "message": "success",
+            "proj": past
+        })
+    } else {
+        res.send({
+            "message": "error",
+            "proj": {}
+        })
+    }
+})
+
+app.post("/edit_proj", (req, res) => {
+    let name = ''
+    if (req.body.nameForm) {
+        name = req.body.nameForm;
+        console.log(req.body)
+        proj_id = name;
+    } else {
+        name = proj_id
+    }
+    // console.log(req.body)
+    const projItem = {
+        name: name,
+        description: req.body.description,
+        location: req.body.location,
+        cur: req.body.cur,
+        images: [
+            {"url": req.body.image_url_1, "description": req.body.image_desc_1},
+            {"url": req.body.image_url_2, "description": req.body.image_desc_2},
+            {"url": req.body.image_url_3, "description": req.body.image_desc_3},
+            {"url": req.body.image_url_4, "description": req.body.image_desc_4},
+            {"url": req.body.image_url_5, "description": req.body.image_desc_5},
+            {"url": req.body.image_url_6, "description": req.body.image_desc_6},
+            {"url": req.body.image_url_7, "description": req.body.image_desc_7},
+            {"url": req.body.image_url_8, "description": req.body.image_desc_8},
+            {"url": req.body.image_url_9, "description": req.body.image_desc_9},
+            {"url": req.body.image_url_10, "description": req.body.image_desc_10}
+        ],
+        report1: req.body.main_link,
+        report2: req.body.link2,
+        report3: req.body.link3,
+        staff: [
+            {"name": req.body.staff_name_1, "role": req.body.staff_role_1},
+            {"name": req.body.staff_name_2, "role": req.body.staff_role_2},
+            {"name": req.body.staff_name_3, "role": req.body.staff_role_3},
+            {"name": req.body.staff_name_4, "role": req.body.staff_role_4},
+            {"name": req.body.staff_name_5, "role": req.body.staff_role_5},
+            {"name": req.body.staff_name_6, "role": req.body.staff_role_6},
+            {"name": req.body.staff_name_7, "role": req.body.staff_role_7},
+            {"name": req.body.staff_name_8, "role": req.body.staff_role_8},
+        ],
+        partners: [
+            {"url": req.body.partner_url_1, "logo": req.body.partner_img_1},
+            {"url": req.body.partner_url_2, "logo": req.body.partner_img_2},
+            {"url": req.body.partner_url_3, "logo": req.body.partner_img_3},
+        ]
+        // partners: [
+        //     {"url": req.body.part}
+        // ]
+    }
+    const cur = req.body.cur
+    console.log(projItem)
+    if (cur === "current") {
+        // const past = pastProjects.find(proj => proj.name === req.body.name)
+        const num = curProjects.findIndex(proj => proj.name === name)
+        // curProjects.findIndex(num)
+        curProjects = curProjects.filter((proj) => {
+            if (proj.name === projItem.name) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        curProjects.splice(num, 0, projItem)
+        // curProjects.push(projItem);
+        const projJSON = JSON.stringify(curProjects)
+        fs.writeFile(__dirname + "/public/data/currentProj2.json", projJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_proj')
+                } else {
+                    res.redirect('WWDdetail.html?id=' + proj_id);
+                }
+            })
+    } else {
+        const num = pastProjects.findIndex(proj => proj.name === name)
+        pastProjects = pastProjects.filter((proj) => {
+            if (proj.name === projItem.name) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        // pastProjects.push(projItem);
+        pastProjects.splice(num, 0, projItem)
+        console.log(num)
+        // console.log(pastProjects)
+        const projJSON = JSON.stringify(pastProjects)
+        console.log(proj_id)
+        fs.writeFile(__dirname + "/public/data/pastProj.json", projJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_proj');
+                } else {
+                    res.redirect('WWDdetail.html?id=' + proj_id);
+                }
+            })
+    }
+});
+
+app.post("/delete_item", (req, res) => {
+    const past = pastProjects.find(proj => proj.name === req.body.name)
+    const cur = curProjects.find(proj => proj.name === req.body.name)
+    if (cur !== undefined) {
+        curProjects = curProjects.filter((proj) => {
+            if (proj.name === req.body.name) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        const projJSON = JSON.stringify(curProjects)
+        fs.writeFile(__dirname + "/public/data/currentProj2.json", projJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_proj')
+                } else {
+                    res.redirect('/whatwedo');
+                }
+            })
+    } else {
+        pastProjects = pastProjects.filter((proj) => {
+            if (proj.name === req.body.name) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        const projJSON = JSON.stringify(pastProjects)
+        fs.writeFile(__dirname + "/public/data/pastProj.json", projJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_proj');
+                } else {
+                    res.redirect('/whatwedo');
+                }
+            })
+    }
+});
+
+app.get("/edit_proj", (req, res) => {
+    // const id = req.query.id;
+    if (req.isAuthenticated()) {
+        // console.log("authenticated")
+        //res.sendFile(__dirname + "/src/edit_proj.html?proj=" + id);
+        res.sendFile(__dirname + "/src/edit_proj.html");
+    } else {
+        res.redirect("/login")
+    }
+    // const past = pastProjects.find(proj => proj.id === id)
+})
+
+let proj_id = ''
+app.post("/set_proj_id", (req, res) => {
+    proj_id = req.body.id;
+    res.send({message: "success", id: proj_id})
+
+})
+
+app.get("/send_proj_id", (req, res) => {
+    res.send({message: "success", id: proj_id})
+    // proj_id = req.body.id;
+})
+
+// publication/dissertation
+
+app.get('/get_pubdis_by_id', function (req, res) {
+    const id = req.query.id;
+
+    const pub = pubs.find(proj => proj.citation === id)
+    const dis = dists.find(proj => proj.citation === id)
+    if (pub !== undefined) {
+        res.send({
+            "message": "success",
+            "proj": pub
+        })
+    } else if (dis !== undefined) {
+        res.send({
+            "message": "success",
+            "proj": dis
+        })
+    } else {
+        res.send({
+            "message": "error",
+            "proj": {}
+        })
+    }
+})
+
+app.post("/delete_pubdis", (req, res) => {
+    const pub = pubs.find(proj => proj.citation === req.body.id)
+    const dis = dists.find(proj => proj.citation === req.body.id)
+    if (pub !== undefined) {
+        pubs = pubs.filter((proj) => {
+            if (proj.citation === req.body.id) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        const projJSON = JSON.stringify(pubs)
+        fs.writeFile(__dirname + "/public/data/pubs.json", projJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_pub_dis')
+                } else {
+                    res.redirect('/whatwedo');
+                }
+            })
+    } else {
+        dists = dists.filter((proj) => {
+            if (proj.citation === req.body.id) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        const projJSON = JSON.stringify(dists)
+        fs.writeFile(__dirname + "/public/data/dissertations.json", projJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_pub_dis')
+                } else {
+                    res.redirect('/whatwedo');
+                }
+            })
+    }
+});
+
+app.get("/edit_pub_dis", (req, res) => {
+    // const id = req.query.id;
+    if (req.isAuthenticated()) {
+        //res.sendFile(__dirname + "/src/edit_proj.html?proj=" + id);
+        res.sendFile(__dirname + "/src/edit_pubdis.html");
+    } else {
+        res.redirect("/login")
+    }
+    // const past = pastProjects.find(proj => proj.id === id)
+})
+
+let pub_dis_id = ''
+app.post("/set_pub_dis_cit", (req, res) => {
+    pub_dis_id = req.body.id;
+    res.send({message: "success", id: pub_dis_id})
+})
 
 
+app.get("/send_pub_dis", (req, res) => {
+    res.send({message: "success", id: pub_dis_id})
+})
+
+app.post("/edit_pub_dis", (req, res) => {
+    let citation = ""
+    if (req.body.citation) {
+        citation = req.body.citation
+        pub_dis_id = citation;
+    } else {
+        citation = pub_dis_id
+    }
+    const projItem = {
+        url: req.body.url,
+        citation: citation,
+        pub_dis: req.body.pub_dis
+    }
+    if (req.body.pub_dis === "pub") {
+        const num = pubs.findIndex(event => event.citation === citation)
+        pubs = pubs.filter((pub) => {
+            if (pub.citation === projItem.citation) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        pubs.splice(num, 0, projItem)
+        const pubJSON = JSON.stringify(pubs)
+        fs.writeFile(__dirname + "/public/data/pubs.json", pubJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_pub_dis')
+                } else {
+                    res.redirect('/whatwedo');
+                }
+            })
+    } else {
+        const num = dists.findIndex(event => event.citation === citation)
+        dists = dists.filter((dis) => {
+            if (dis.citation === projItem.citation) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        // dists.push(projItem);
+        dists.splice(num, 0, projItem)
+        const distJSON = JSON.stringify(dists)
+        fs.writeFile(__dirname + "/public/data/dissertations.json", distJSON,
+            function (err) {
+                if (err) {
+                    res.redirect('/edit_pub_dis')
+                } else {
+                    res.redirect('/whatwedo');
+                }
+            })
+    }
+});
+
+app.get("/world", function (req, res) {
+    res.sendFile(__dirname + "/public/world.html");
+});
+
+app.get('/get_event_by_id', function (req, res) {
+    const id = req.query.id;
+
+    const event = events.find(event => event.name === id)
+    if (event !== undefined) {
+        res.send({
+            "message": "success",
+            "event": event
+        })
+    } else {
+        res.send({
+            "message": "error",
+            "event": {}
+        })
+    }
+})
 
 
+let event_id = ''
+app.post("/set_event_id", (req, res) => {
+    event_id = req.body.id;
+    res.send({message: "success", id: event_id})
+})
+
+
+app.get("/send_event_id", (req, res) => {
+    res.send({message: "success", id: event_id})
+})
+
+
+app.get("/edit_event", (req, res) => {
+    if (req.isAuthenticated()) {
+        res.sendFile(__dirname + "/src/edit_event.html");
+    } else {
+        res.redirect("/login")
+    }
+})
+
+
+app.post("/edit_event", (req, res) => {
+    let name = ""
+    if (req.body.name) {
+        name = req.body.name
+        event_id = name;
+    } else {
+        name = event_id
+    }
+    const eventItem = {
+        name: name,
+        description: req.body.description,
+        date: req.body.date,
+        images: [
+            {"url": req.body.image_url_1, "description": req.body.image_desc_1},
+            {"url": req.body.image_url_2, "description": req.body.image_desc_2},
+            {"url": req.body.image_url_3, "description": req.body.image_desc_3},
+            {"url": req.body.image_url_4, "description": req.body.image_desc_4},
+            {"url": req.body.image_url_5, "description": req.body.image_desc_5}
+        ]
+    }
+    const num = events.findIndex(event => event.name === name)
+    // events.findIndex(num)
+    events = events.filter((event) => {
+        if (event.name === eventItem.name) {
+            return false; // to delete
+        } else {
+            return true; // to keep
+        }
+    });
+    events.splice(num, 0, eventItem)
+    const eventJSON = JSON.stringify(events)
+    fs.writeFile(__dirname + "/public/data/events.json", eventJSON,
+        function (err) {
+            if (err) {
+                res.redirect('/edit_event')
+            } else {
+                res.redirect('/event_detail.html?id=' + event_id);
+                // WWDdetail.html?id=' + proj_id
+            }
+        })
+});
+
+
+app.post("/delete_event", (req, res) => {
+    events = events.filter((event) => {
+        if (event.name === req.body.id) {
+            return false; // to delete
+        } else {
+            return true; // to keep
+        }
+    });
+    const eventJSON = JSON.stringify(events)
+    fs.writeFile(__dirname + "/public/data/events.json", eventJSON,
+        function (err) {
+            if (err) {
+                res.redirect('/edit_event')
+            } else {
+                res.redirect('/world');
+            }
+        })
+});
+
+// send files
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/public/index_welcome.html");
+});
+
+app.get("/whatwedo", function (req, res) {
+    res.sendFile(__dirname + "/public/whatWeDoOverview.html");
+});
 

@@ -1,0 +1,37 @@
+:root {
+    /* CSS HEX */
+    --background_grey: rgba(234,234,235,1);
+    --red: #d90429;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    padding-right: 2rem;
+    /*margin-bottom: 0;*/
+    /*padding-bottom: 0;*/
+}
+
+.navbar-btn:hover {
+    color: #FFF;
+    background-color: #edf2f4 !important;
+    border-color: #edf2f4 !important;
+}
+.navbar-brand{
+    padding-left: 2rem;
+    /*margin-bottom: 1rem;*/
+    font-size: large;
+}
+
+#all {
+    width:90%;
+    justify-content: center;
+    text-align: center;
+    margin:auto;
+    margin-top: 3%;
+}
+.card-body {
+    text-align: left;
+}
+footer {
+    background-color: grey;
+}

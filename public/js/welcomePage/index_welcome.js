@@ -6,7 +6,7 @@ function get_partner_obj(partner) {
     return `<div class="col-md-3 imgDiv mx-auto d-flex align-self-center" >
 
 <!--delete button-->
-                <div class="col"><button class="btn btn-sm btn-danger delete_btn_partner col-auto " 
+                <div class="col"><button class="btn btn-sm btn-danger delete_btn_partner col-auto hide" 
             value='${JSON.stringify(partner)}'>Delete partner</button></div>
             
 <!--                edit button-->

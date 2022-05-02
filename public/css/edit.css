@@ -1,0 +1,21 @@
+:root {
+    /* CSS HEX */
+    --imperial-red: #e63946ff;
+    --honeydew: #f1faeeff;
+    --powder-blue: #a8dadcff;
+    --celadon-blue: #457b9dff;
+    --prussian-blue: #1d3557ff;
+}
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-btn:hover {
+    color: #FFF;
+    background-color: #337AB7 !important;
+    border-color: #2E6DA4 !important;
+}
+
+.big {
+    height: 200px;
+}

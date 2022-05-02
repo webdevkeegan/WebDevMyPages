@@ -1,0 +1,99 @@
+:root {
+    /* CSS HEX */
+    --background_grey: rgba(234,234,235,1);
+    --red: #d90429;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+.navbar-btn:hover {
+    color: #FFF;
+    background-color: #edf2f4 !important;
+    border-color: #edf2f4 !important;
+}
+.navbar-brand{
+    padding-left: 2rem;
+    /*margin-bottom: 1rem;*/
+    font-size: large;
+}
+
+.jump {
+    width: 33%;
+}
+
+#all {
+    width:90%;
+    justify-content: center;
+    text-align: center;
+    margin:auto;
+}
+
+.card img {
+    width:100%;
+}
+
+.pastProjName {
+    font-size: 1.5em;
+}
+
+section  {
+    margin-bottom: 5%;
+}
+
+#currentProjects .container{
+    width:75%;
+}
+
+#currentProjects, #pastProjs, #pubs_dist {
+    background-color: var(--background_grey);
+    /*border: solid;*/
+    /*border-color: #d90429;*/
+    border-radius: 25px;
+    padding-bottom:3%;
+    padding-top:3%;
+}
+
+.input-group {
+    padding: 5%;
+    /*border: solid;*/
+}
+#basic-addon2, #search_proj, #searchPub2, #search_pub {
+    border: solid #d90429;
+    /*border-color: #d90429;*/
+}
+
+#pubs_dist {
+    padding: 2%;
+}
+
+.line {
+    background-color: #d90429;
+    height: 4px;
+}
+
+.pub_dis_line {
+    margin: 0;
+    padding: 0;
+    /*background-color: #d90429;*/
+}
+
+.pub_dis {
+    margin: 0;
+    padding: 0;
+}
+
+#publicationList {
+    text-align: left;
+}
+
+#dissertationList {
+    text-align: left;
+}
+
+footer {
+    background-color: grey;
+}
+
