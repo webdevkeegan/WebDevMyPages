@@ -69,6 +69,19 @@ $.getJSON("data/servicesProvided.json", () => {
 
     });
 
+    //prefill form with already entered info if edit button clicked
+    $('.edit_btn_service').on('click', function () {
+        // console.log($(this).attr('value'));
+        const service = JSON.parse($(this).attr('value')); //convert to obj
+
+        //sends person's name as id
+        $.post('/set_service_id', {serviceName: service.service}).done((data) => {
+            if (data.message === "success") {
+                location.href = "/new-service"
+            }
+        })
+    })
+
 
 });
 //--------------------------------------------------------------

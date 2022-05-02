@@ -527,8 +527,7 @@ app.post('/delete-partner', (req, res) => {
 
 });
 
-//------------------------------------------------
-
+//--------------EDIT PERSON - pre-fill form----------------------------------
 
 let person_id = ''
 app.post("/set_person_id", (req, res) => {
@@ -540,23 +539,7 @@ app.post("/set_person_id", (req, res) => {
 app.get("/send_person_id", (req, res) => {
         // console.log("proj id at send get equals: " + proj_id)
         res.send({message: "success", id: person_id})
-        //console.log(pub_dis_id)
 
-    // const id = req.query.id;
-    //
-    // const person = peopleList.find(person => person.name === id)
-    // console.log(person)
-    // if (person !== undefined) {
-    //     res.send({
-    //         "message": "success",
-    //         "person": person
-    //     })
-    // } else {
-    //     res.send({
-    //         "message": "error",
-    //         "event": {}
-    //     })
-    // }
 })
 
 app.get("/get_person_id", (req, res) => {
@@ -578,6 +561,42 @@ app.get("/get_person_id", (req, res) => {
         })
     }
 })
+//------------------------------------------------
+
+//--------------EDIT service - pre-fill form----------------------------------
+
+let service_id = ''
+app.post("/set_service_id", (req, res) => {
+    service_id = req.body.serviceName;
+    // console.log("proj id at set, equals: " + proj_id)
+    res.send({message: "success", id: service_id})
+
+})
+app.get("/send_service_id", (req, res) => {
+    res.send({message: "success", id: service_id})
+
+})
+
+app.get("/get_service_id", (req, res) => {
+
+    const id = req.query.id;
+
+    const service = servicesList.find(service => service.service === id)
+    console.log("in server.js: /get_service_id ")
+    console.log(service)
+    if (service !== undefined) {
+        res.send({
+            "message": "success",
+            "service": service
+        })
+    } else {
+        res.send({
+            "message": "error",
+            "service": {}
+        })
+    }
+})
+//------------------------------------------------
 
 //----------------Get welcome page------------------------------------------
 
