@@ -2,6 +2,7 @@
 $(document).ready(function() {
     $("#alert_button").text("");
 
+
     $("#save_button").on('click',function(){
         console.log("clicked save button")
         // console.log($('#stock_number').val())
@@ -34,7 +35,7 @@ $(document).ready(function() {
         }
         if($('#bio_to_be_added').val()=== null ||$('#bio_to_be_added').val().length <= 0 || $('#bio_to_be_added').val()===NaN){
             console.log("check bio_to_be_added");
-            $("#alert_button").text("Bio ccannot be empty");
+            $("#alert_button").text("Bio cannot be empty");
             return false;
         }
 

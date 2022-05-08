@@ -754,7 +754,35 @@ app.post("/edit_proj", (req, res) => {
     }
     const cur = req.body.cur
     console.log(projItem)
-    if (cur === "current") {
+    const inCur = curProjects.find(proj => proj.name === name)
+    if (cur === "past" && inCur) {
+        curProjects = curProjects.filter((proj) => {
+            if (proj.name === projItem.name) {
+                return false; // to delete
+            } else {
+                return true; // to keep
+            }
+        });
+        pastProjects.push(projItem);
+        const projJSON = JSON.stringify(pastProjects)
+        const curProjJSON = JSON.stringify(curProjects)
+        fs.writeFile(__dirname + "/public/data/currentProj2.json", curProjJSON, function(err) {
+            if (err) {
+                res.redirect('/edit_proj')
+            }
+            else {
+                fs.writeFile(__dirname + "/public/data/pastProj.json", projJSON,
+                    function (err) {
+                        if (err) {
+                            res.redirect('/edit_proj');
+                        } else {
+                            res.redirect('WWDdetail.html?id=' + proj_id);
+                        }
+                    })
+            }
+        });
+    }
+    else if (cur === "current") {
         // const past = pastProjects.find(proj => proj.name === req.body.name)
         const num = curProjects.findIndex(proj => proj.name === name)
         // curProjects.findIndex(num)
@@ -801,6 +829,104 @@ app.post("/edit_proj", (req, res) => {
             })
     }
 });
+// app.post("/edit_proj", (req, res) => {
+//     let name = ''
+//     if (req.body.nameForm) {
+//         name = req.body.nameForm;
+//         console.log(req.body)
+//         proj_id = name;
+//     } else {
+//         name = proj_id
+//     }
+//     // console.log(req.body)
+//     const projItem = {
+//         name: name,
+//         description: req.body.description,
+//         location: req.body.location,
+//         cur: req.body.cur,
+//         images: [
+//             {"url": req.body.image_url_1, "description": req.body.image_desc_1},
+//             {"url": req.body.image_url_2, "description": req.body.image_desc_2},
+//             {"url": req.body.image_url_3, "description": req.body.image_desc_3},
+//             {"url": req.body.image_url_4, "description": req.body.image_desc_4},
+//             {"url": req.body.image_url_5, "description": req.body.image_desc_5},
+//             {"url": req.body.image_url_6, "description": req.body.image_desc_6},
+//             {"url": req.body.image_url_7, "description": req.body.image_desc_7},
+//             {"url": req.body.image_url_8, "description": req.body.image_desc_8},
+//             {"url": req.body.image_url_9, "description": req.body.image_desc_9},
+//             {"url": req.body.image_url_10, "description": req.body.image_desc_10}
+//         ],
+//         report1: req.body.main_link,
+//         report2: req.body.link2,
+//         report3: req.body.link3,
+//         staff: [
+//             {"name": req.body.staff_name_1, "role": req.body.staff_role_1},
+//             {"name": req.body.staff_name_2, "role": req.body.staff_role_2},
+//             {"name": req.body.staff_name_3, "role": req.body.staff_role_3},
+//             {"name": req.body.staff_name_4, "role": req.body.staff_role_4},
+//             {"name": req.body.staff_name_5, "role": req.body.staff_role_5},
+//             {"name": req.body.staff_name_6, "role": req.body.staff_role_6},
+//             {"name": req.body.staff_name_7, "role": req.body.staff_role_7},
+//             {"name": req.body.staff_name_8, "role": req.body.staff_role_8},
+//         ],
+//         partners: [
+//             {"url": req.body.partner_url_1, "logo": req.body.partner_img_1},
+//             {"url": req.body.partner_url_2, "logo": req.body.partner_img_2},
+//             {"url": req.body.partner_url_3, "logo": req.body.partner_img_3},
+//         ]
+//         // partners: [
+//         //     {"url": req.body.part}
+//         // ]
+//     }
+//     const cur = req.body.cur
+//     console.log(projItem)
+//     if (cur === "current") {
+//         // const past = pastProjects.find(proj => proj.name === req.body.name)
+//         const num = curProjects.findIndex(proj => proj.name === name)
+//         // curProjects.findIndex(num)
+//         curProjects = curProjects.filter((proj) => {
+//             if (proj.name === projItem.name) {
+//                 return false; // to delete
+//             } else {
+//                 return true; // to keep
+//             }
+//         });
+//         curProjects.splice(num, 0, projItem)
+//         // curProjects.push(projItem);
+//         const projJSON = JSON.stringify(curProjects)
+//         fs.writeFile(__dirname + "/public/data/currentProj2.json", projJSON,
+//             function (err) {
+//                 if (err) {
+//                     res.redirect('/edit_proj')
+//                 } else {
+//                     res.redirect('WWDdetail.html?id=' + proj_id);
+//                 }
+//             })
+//     } else {
+//         const num = pastProjects.findIndex(proj => proj.name === name)
+//         pastProjects = pastProjects.filter((proj) => {
+//             if (proj.name === projItem.name) {
+//                 return false; // to delete
+//             } else {
+//                 return true; // to keep
+//             }
+//         });
+//         // pastProjects.push(projItem);
+//         pastProjects.splice(num, 0, projItem)
+//         console.log(num)
+//         // console.log(pastProjects)
+//         const projJSON = JSON.stringify(pastProjects)
+//         console.log(proj_id)
+//         fs.writeFile(__dirname + "/public/data/pastProj.json", projJSON,
+//             function (err) {
+//                 if (err) {
+//                     res.redirect('/edit_proj');
+//                 } else {
+//                     res.redirect('WWDdetail.html?id=' + proj_id);
+//                 }
+//             })
+//     }
+// });
 
 app.post("/delete_item", (req, res) => {
     const past = pastProjects.find(proj => proj.name === req.body.name)

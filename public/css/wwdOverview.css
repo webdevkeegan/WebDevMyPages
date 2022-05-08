@@ -61,7 +61,7 @@ section  {
     /*border: solid;*/
 }
 #basic-addon2, #search_proj, #searchPub2, #search_pub {
-    border: solid #d90429;
+    border: 2px solid #d90429;
     /*border-color: #d90429;*/
 }
 
@@ -80,10 +80,16 @@ section  {
     /*background-color: #d90429;*/
 }
 
-.pub_dis {
-    margin: 0;
-    padding: 0;
-}
+/*.pub_dis {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.card-body h3 {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*}*/
 
 #publicationList {
     text-align: left;
@@ -96,4 +102,3 @@ section  {
 footer {
     background-color: grey;
 }
-

@@ -5,3 +5,43 @@
 #peopleGrid{
     margin: 2rem;
 }
+
+.hideBio{
+    display: none;
+}
+
+.highlight{
+    background-color: #07e3ff;
+}
+
+/*.adjustWidth{*/
+/*    font-size: medium;*/
+/*}*/
+
+/*.makeRoundTop{*/
+/*    border-radius: 20%     20%      0           0;*/
+/*    overflow: hidden;*/
+/*}*/
+
+.serviced-img-top{
+    width: 65%;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.p-card{
+    padding: 1.5em .5em .5em;
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.card-title{
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.services_border{
+    border-color: #d90429;
+}

@@ -1,12 +1,13 @@
 $('#servicesGrid').empty();
 
 function get_service_obj(service) {
-    return `<div class="col mb-2" data-l="${service.service}">
+    return `<div class="col mb-2 aservice " data-l="${service.service}" >
 
-            <div class="card col mb-2 pt-3 serviced text-center h-100 border-info">
+            <div class="card col mb-2 pt-3 serviced text-center h-100" style="border-color: #d90429">
               <div class="serviced-body">
                 <h5 class="serviced-title ">${service.service}</h5>
-                <p class="serviced-text">${service.description}</p>
+                
+                <p class="serviced-text hideBio">${service.description}</p>
                 
 <!--                edit button-->
                 <button class="btn btn-sm btn-primary edit_btn_service col-auto hide" data-l="${service.service}" 
@@ -23,14 +24,16 @@ function get_service_obj(service) {
 }
 
 function get_person_obj(person) {
-    return `<div class="col mb-2" data-l="${person.contact}">
-            <div class="card serviced text-center h-100">
-            <img class="serviced-img-top" src=${person.profile_picture} alt="profile picture">
-              <div class="serviced-body">
+    return `<div class="col mb-2 aperson" data-l="${person.contact}">
+            <div class="card serviced text-center h-100 p-card">
+            <img class="serviced-img-top " src=${person.profile_picture} alt="profile picture">
+              <div class="serviced-body ">
                 <h2 class="serviced-title">${person.name}</h2>
                 <h3 class="serviced-text">${person.title}</h3>
                 <h5 class="serviced-text">${person.department}</h5>
                 <p class="serviced-text">${person.contact}</p>
+                <!--           toggle     bio button-->
+                <p class="hideBio">${person.bio}</p>
                 
 <!--                edit button-->
                 <button class="btn btn-sm btn-primary edit_btn_person col-auto hide" data-l="${person.contact}"
@@ -132,8 +135,19 @@ $.getJSON("data/people.json", () => {
 });
 //-----------------------------------------------------------------
 
+// $('.aperson').on('click', function () {
+//     console.log("clicked aperson")
+//     $(this).find(".hideBio").toggle("hideBio");
+// });
+// $(".aperson").click(function() {
+//     console.log("clicked aperson")
+// });
+
 $(document).ready(() => {
+
+
     $.getJSON('/get_current_user').done((data) => {
+
         console.log(data.message)
         if (data.message === 'success') {
             $('#login').remove()
@@ -146,3 +160,22 @@ $(document).ready(() => {
         }
     })
 })
+
+// $(".aperson").click(function() {
+//     console.log("clicked aperson")
+// });
+
+$(document).on( 'click', '.aperson', function () {
+    console.log("clicked aperson")
+    console.log($(this))
+    $(this).find(".hideBio").fadeToggle("hideBio");
+    $(this).find(".card").toggleClass("bg-light");
+});
+
+$(document).on( 'click', '.aservice', function () {
+    console.log("clicked aservice")
+    console.log($(this))
+    $(this).find(".hideBio").fadeToggle("hideBio");
+    $(this).find(".card").toggleClass("bg-light");
+    $(this).find(".card").toggleClass("adjustWidth");
+});
