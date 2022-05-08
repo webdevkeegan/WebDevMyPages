@@ -1,6 +1,6 @@
 function get_carousel_item(image, count) {
     return `<div class="carousel-item" id='num${count}'>
-                <img class="d-block w-100" src=${image.url} alt=${image.description}>
+                <img class="d-block w-100 round" src=${image.url} alt=${image.description}>
                 <div class="carousel-caption d-none d-md-block">
                     <p>${image.description}</p>
                 </div>

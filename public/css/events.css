@@ -22,11 +22,15 @@
     font-size: large;
 }
 
-/*.event img:hover {*/
-/*    color: #FFF;*/
-/*    background-color: #337AB7 !important;*/
-/*    border-color: #2E6DA4 !important;*/
-/*}*/
+.grey_out {
+    background-color: rgba(97,97,98,0.7);
+    /*opacity: 75%;*/
+    color: white;
+}
+
+.card-title {
+    font-size: 1.25em;
+}
 
 #events_div {
     background-color: rgba(234,234,235,1);

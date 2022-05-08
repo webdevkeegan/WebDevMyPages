@@ -21,6 +21,9 @@
     /*margin-bottom: 1rem;*/
     font-size: large;
 }
+.navbar {
+    background-color: grey;
+}
 
 #all {
     width:90%;
@@ -64,4 +67,12 @@ footer {
 .line {
     background-color: #d90429;
     height: 4px;
+}
+
+.col-12 img {
+    width: 250px;
+}
+
+a {
+    text-decoration: none;
 }

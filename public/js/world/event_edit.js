@@ -18,13 +18,13 @@ $('form').on('submit', function () {
 function getImageDiv(count) {
     return `<div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="mb-3">
-                    <label for="image_url_${count}" class="form-label">Image url/src ${count}</label>
+                    <label for="image_url_${count}" class="form-label">Image Source ${count}</label>
                     <input class="form-control" type="text" name="image_url_${count}" id="image_url_${count}">
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                    <div class="mb-3">
-                        <label for="image_desc_${count}" class="form-label">Image desc ${count}</label>
+                        <label for="image_desc_${count}" class="form-label">Image Description ${count}</label>
                         <textarea class="form-control" name="image_desc_${count}" id="image_desc_${count}"></textarea>
                    </div>
                 </div>`

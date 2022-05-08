@@ -47,16 +47,16 @@ function load_proj(proj) {
     $('#proj_desc').html(proj.description)
     $('.edit').attr('data-l', proj.name)
     $('.delete').attr('data-l', proj.name)
-    $('#mainLink').attr('data-l', proj.report)
+    $('#mainLink').attr('href', proj.report1)
 
     if (proj.report2 !== "") {
-        $('#link2').attr('data-l', proj.report2)
+        $('#link2').attr('href', proj.report2)
     }
     else {
         $('#link2').remove()
     }
     if (proj.report3 !== "") {
-        $('#link3').attr('data-l', proj.report3)
+        $('#link3').attr('href', proj.report3)
     }
     else {
         $('#link3').remove()
@@ -64,24 +64,38 @@ function load_proj(proj) {
     // console.log(partners)
     if (proj.partners[0].url !== "") {
         $('#partner1').attr('src', proj.partners[0].logo)
-        $('#partner1').attr('data-l', proj.partners[0].url)
+        $('#partner1_link').attr('href', proj.partners[0].url)
     }
     else {
-        $('#partner1').remove()
+        $('#partner1_div').remove()
     }
     if (proj.partners[1].url !== "") {
         $('#partner2').attr('src', proj.partners[1].logo)
-        $('#partner2').attr('data-l', proj.partners[1].url)
+        $('#partner2_link').attr('href', proj.partners[1].url)
     }
     else {
-        $('#partner2').remove()
+        $('#partner2_div').remove()
     }
     if (proj.partners[2].url !== "") {
         $('#partner3').attr('src', proj.partners[2].logo)
-        $('#partner3').attr('data-l', proj.partners[2].url)
+        $('#partner3_link').attr('href', proj.partners[2].url)
     }
     else {
-        $('#partner3').remove()
+        $('#partner3_div').remove()
+    }
+    if (proj.partners[3].url !== "") {
+        $('#partner3').attr('src', proj.partners[3].logo)
+        $('#partner3_link').attr('href', proj.partners[3].url)
+    }
+    else {
+        $('#partner4_div').remove()
+    }
+    if (proj.partners[4].url !== "") {
+        $('#partner4').attr('src', proj.partners[4].logo)
+        $('#partner4_link').attr('href', proj.partners[4].url)
+    }
+    else {
+        $('#partner5_div').remove()
     }
 
     for (const staff of proj.staff) {
@@ -91,21 +105,6 @@ function load_proj(proj) {
             $('#staffList').append(staff_obj)
         }
     }
-}
-
-function mainLink() {
-    const proj = $('#mainLink').attr('data-l')
-    location.href = proj
-}
-
-function link2() {
-    const proj = $('#link2').attr('data-l')
-    location.href = proj
-}
-
-function link3() {
-    const proj = $('#link3').attr('data-l')
-    location.href = proj
 }
 
 // function login() {

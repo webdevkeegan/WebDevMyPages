@@ -1,19 +1,26 @@
 function get_event(event) {
     return `<div class="col event mb-3" data-l="${event.name}">
-                <div class="card border border-danger h-100">
-                    <div class="card-body">
-                        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-mdb-ripple-color="light">
-                            <img src=${event.images[0].url} class="w-100" alt="${event.description}" id="${event.name}"/>
-                            <a href="event_detail.html?id=${event.name}">
-                                <div class="mask" style="background-color: rgba(120, 120, 120, 0.7)"></div>
-                            </a>
-                        </div>
-                        <h3 class="card-title">
+                <div class="card border border-danger h-100 bg-image hover-overlay ripple">
+                      <img src=${event.images[0].url} class="card-img w-100" alt="${event.description}" id="${event.name}"/>
+                         
+                      <div class="card-img-overlay text-center d-flex align-items-end justify-content-center">  
+                        <h3 class="card-title grey_out  m-3 p-1">
                             ${event.name}
                         </h3>
                         <button type="button" class="btn btn-primary edit hide" data-l="${event.name}">Edit</button>
                         <button type="button" class="btn btn-danger delete hide" data-l="${event.name}">Delete</button>
                     </div>
+                    <a href="event_detail.html?id=${event.name}">
+                                <div class="mask" style="background-color: rgba(120, 120, 120, 0.7)">
+                                <div class="card-img-overlay text-center d-flex align-items-end justify-content-center">  
+                        <h3 class="card-title grey_out  m-3 p-1">
+                            ${event.name}
+                        </h3>
+                        <button type="button" class="btn btn-primary edit hide" data-l="${event.name}">Edit</button>
+                        <button type="button" class="btn btn-danger delete hide" data-l="${event.name}">Delete</button>
+                    </div>
+</div>
+                            </a>
                 </div>
             </div>
     `

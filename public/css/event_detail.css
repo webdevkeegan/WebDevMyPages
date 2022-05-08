@@ -56,3 +56,7 @@ section  {
 footer {
     background-color: grey;
 }
+
+.round {
+    border-radius: 25px;
+}

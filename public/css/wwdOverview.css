@@ -1,7 +1,8 @@
 :root {
     /* CSS HEX */
     --background_grey: rgba(234,234,235,1);
-    --red: #d90429;
+    --clark_scarlet: #cc0000;
+    --clark_grey: #939598;
 }
 
 .navbar-nav {
@@ -22,6 +23,7 @@
 
 .jump {
     width: 33%;
+    /*mb: 1%;*/
 }
 
 #all {
@@ -36,11 +38,19 @@
 }
 
 .pastProjName {
-    font-size: 1.5em;
+    font-size: 1.25em;
+}
+
+.smallerText {
+    font-size: 0.9em;
 }
 
 section  {
     margin-bottom: 5%;
+}
+
+#pageNavigation {
+    margin-bottom: 2%;
 }
 
 #currentProjects .container{
@@ -49,11 +59,18 @@ section  {
 
 #currentProjects, #pastProjs, #pubs_dist {
     background-color: var(--background_grey);
-    /*border: solid;*/
+    /*border: solid 2px var(--clark_scarlet);*/
     /*border-color: #d90429;*/
     border-radius: 25px;
     padding-bottom:3%;
     padding-top:3%;
+}
+.red_border {
+    border: solid 2px var(--clark_scarlet);
+}
+
+.round {
+    border-radius: 25px;
 }
 
 .input-group {
@@ -80,16 +97,12 @@ section  {
     /*background-color: #d90429;*/
 }
 
-/*.pub_dis {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
+.grey_out {
+    background-color: rgba(97,97,98,0.7);
+    /*opacity: 75%;*/
+    color: white;
+}
 
-/*.card-body h3 {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    width: 100%;*/
-/*}*/
 
 #publicationList {
     text-align: left;
@@ -102,3 +115,4 @@ section  {
 footer {
     background-color: grey;
 }
+

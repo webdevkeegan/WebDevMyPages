@@ -40,7 +40,7 @@
                 <a class="nav-link active navbar-btn" aria-current="page" href="/">Welcome</a>
                 <a class="nav-link active navbar-btn" aria-current="page" href="/world">HURDL and the World</a>
                 <a class="nav-link active navbar-btn" aria-current="page" href="/whatwedo">What We Do</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/who_we_are">Who We Are</a>
+                <a class="nav-link active navbar-btn" aria-current="page" href="/public/who_we_are.html">Who We Are</a>
                 <a class="nav-link active navbar-btn" aria-current="page" href="/">Blog</a>
             </div>
         </div>
@@ -51,7 +51,7 @@
 <section id="edit_proj">
     <form action="/edit_pub_dis" method="post">
         <div class="mb-3" id="newOnly">
-            <label for="citationForm" class="form-label">citation</label>
+            <label for="citationForm" class="form-label">Citation</label>
             <input class="form-control" type="text" name="citationForm" id="citationForm">
         </div>
             <div class="mb-3">
@@ -75,5 +75,20 @@
         </div>
     </form>
 </section>
+<footer class="text-center text-lg-start">
+    <div class="text-center">
+        <a class="text-light" href="https://hurdl.org/">© 2022 Copyright: HURDL</a>
+        <a class="text-dark" href="https://twitter.com/hurdltweet" role="button"
+        ><i class="fab fa-twitter"></i
+        ></a>
+    </div>
+    <div class="text-center">
+        <!--        <a class="text-light" id='login' href="login.html">Login</a>-->
+        <a class="text-light hide" id='logout' href="/logout">Logout</a>
+    </div>
+    <div class="text-center">
+        <a class="text-light hide" id='register' href="/register">Register a new editor</a>
+    </div>
+</footer>
 </body>
 </html>

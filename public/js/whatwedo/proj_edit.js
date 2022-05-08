@@ -3,10 +3,9 @@ $('form').on('submit', function () {
     // console.log("help")
     $.each($('input,textarea'), function () {
         if (!$(this).val()) {
-            console.log($(this))
-            console.log($(this).attr('class'))
-            console.log($(this).attr('class').includes('required'))
-            if ($(this).attr('class').includes('required')|| $(this).parent().find('label') === 'image_url_1' || $(this).parent().find('label') === 'image_desc_1') {
+            // console.log($(this))
+            // console.log($(this).attr('id'))
+            if ($(this).attr('class').includes('required')|| $(this).attr('id') === 'image_url_1' || $(this).attr('id') === 'image_desc_1') {
                 errorMessage = `${$(this).parent().find('label').text()} cannot be empty`;
                 return false
             }
@@ -22,13 +21,13 @@ $('form').on('submit', function () {
 function getImageDiv(count) {
     return `<div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="mb-3">
-                    <label for="image_url_${count}" class="form-label">Image url/src ${count}</label>
+                    <label for="image_url_${count}" class="form-label">Image Source ${count}</label>
                     <input class="form-control" type="text" name="image_url_${count}" id="image_url_${count}">
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                    <div class="mb-3">
-                        <label for="image_desc_${count}" class="form-label">Image desc ${count}</label>
+                        <label for="image_desc_${count}" class="form-label">Image Description ${count}</label>
                         <textarea class="form-control" name="image_desc_${count}" id="image_desc_${count}"></textarea>
                    </div>
                 </div>`
@@ -52,13 +51,13 @@ function getStaffDiv(count) {
 function getPartnerDiv(count) {
     return `<div class="col-sm-12 col-lg-6">
                 <div class="mb-3">
-                    <label for="partner_img_${count}" class="form-label">Partner ${count} image source</label>
+                    <label for="partner_img_${count}" class="form-label">Partner ${count} Logo Source</label>
                     <input class="form-control" type="text" name="partner_img_${count}" id="partner_img_${count}">
                 </div>
             </div>
             <div class="col-sm-12 col-lg-6">
                 <div class="mb-3">
-                    <label for="partner_url_${count}" class="form-label">Partner ${count} url</label>
+                    <label for="partner_url_${count}" class="form-label">Partner ${count} Link</label>
                     <input class="form-control" type="text" name="partner_url_${count}" id="partner_url_${count}">
                 </div>
             </div>`
@@ -67,7 +66,7 @@ function getPartnerDiv(count) {
 function load_form(count) {
     //console.log(getImageDiv(count))
     $('#image_div').append(getImageDiv(count))
-    if (count <= 3) {
+    if (count <= 5) {
         $('#partner_div').append(getPartnerDiv(count))
         $('#staff_div').append(getStaffDiv(count))
     }
@@ -84,7 +83,7 @@ function load_proj(proj) {
     $('#location').val(proj.location);
     $('#description').val(proj.description);
     $('#cur').val(proj.cur)
-    $('#main_link').val(proj.report);
+    $('#main_link').val(proj.report1);
     $('#link2').val(proj.report2);
     $('#link3').val(proj.report3);
     let count = 1
@@ -110,9 +109,9 @@ function load_proj(proj) {
     count = 1
     for (const partner of proj.partners) {
         if (partner.url !== "") {
-            let partnerURL = '#partner_url' + count.toString()
+            let partnerURL = '#partner_url_' + count.toString()
             $(partnerURL).val(partner.url)
-            let partnerIMG = '#partner_img' + count.toString()
+            let partnerIMG = '#partner_img_' + count.toString()
             $(partnerIMG).val(partner.logo)
             count += 1
         }
