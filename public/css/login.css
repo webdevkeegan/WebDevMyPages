@@ -28,10 +28,13 @@
     text-align: center;
     margin:auto;
     margin-top: 3%;
+
 }
 .card-body {
     text-align: left;
 }
 footer {
-    background-color: grey;
+    color: black;
+
 }
+

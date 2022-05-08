@@ -62,21 +62,7 @@ $.getJSON("data/aboutUs.json", () => {
 
                 location.reload();
             });
-
     });
-    //prefill form with already entered info if edit button clicked
-    // $('.edit_btn_aboutUs').on('click', function () {
-    //     // console.log($(this).attr('value'));
-    //     const aboutUs = JSON.parse($(this).attr('value')); //convert to obj
-    //
-    //     //sends person's name as id
-    //     $.post('/set_aboutUs_id', {aboutUsDescrip: aboutUs.description}).done((data) => {
-    //         if (data.message === "success") {
-    //             location.href = "/new-aboutUs"
-    //         }
-    //     })
-    // })
-
 });
 //--------------------------------------------------------------
 
