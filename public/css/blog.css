@@ -1,0 +1,69 @@
+/*done*/
+
+:root {
+    /* CSS HEX */
+    --background_grey: rgba(234,234,235,1);
+    --clark_scarlet: #cc0000;
+    --clark_white:#FFF;
+    --footer: #8a8a8a;
+    --offwhiteBg:#edf2f4;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+.navbar-brand{
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: large;
+}
+
+.navbar-btn:hover {
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
+
+
+}
+
+#movie_section img {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    padding: 2%;
+    object-fit: cover;
+}
+
+.blog_title {
+    font-family: 'RocknRoll', sans-serif;
+    font-size: 5rem;
+}
+
+.cel_noto {
+    color: var(--celadon-blue);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.larger_text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.odd_row {
+    background-color: var(--coolred);
+    overflow: auto;
+}
+
+.even_row {
+    background-color: var(--grey);
+    overflow: auto;
+}
+
+.check_box{
+    width: 30px;
+    height: 30px;
+}

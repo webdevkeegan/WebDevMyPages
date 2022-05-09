@@ -1,26 +1,31 @@
+/*done*/
+
 :root {
     /* CSS HEX */
     --background_grey: rgba(234,234,235,1);
     --red: #d90429;
 }
 
+
 .navbar-nav {
     margin-left: auto;
     padding-right: 2rem;
-    /*margin-bottom: 0;*/
-    /*padding-bottom: 0;*/
+}
+
+.navbar-brand{
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: large;
 }
 
 .navbar-btn:hover {
-    color: #FFF;
-    background-color: #edf2f4 !important;
-    border-color: #edf2f4 !important;
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
+
+
 }
-.navbar-brand{
-    padding-left: 2rem;
-    /*margin-bottom: 1rem;*/
-    font-size: large;
-}
+
 
 #all {
     width:90%;

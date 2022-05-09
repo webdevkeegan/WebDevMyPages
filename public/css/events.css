@@ -1,3 +1,13 @@
+/*done*/
+
+:root {
+    /* CSS HEX */
+    --background_grey: rgba(234,234,235,1);
+    --clark_scarlet: #cc0000;
+    --clark_white:#FFF;
+    --footer: #8a8a8a;
+}
+
 #all {
     width:90%;
     justify-content: center;
@@ -6,26 +16,29 @@
     margin-top: 3%;
 }
 
+
 .navbar-nav {
     margin-left: auto;
-}
-
-.navbar-btn:hover {
-    color: #FFF;
-    background-color: #337AB7 !important;
-    border-color: #2E6DA4 !important;
+    padding-right: 2rem;
 }
 
 .navbar-brand{
     padding-left: 2rem;
-    /*margin-bottom: 1rem;*/
+    margin-bottom: 1rem;
     font-size: large;
 }
 
+.navbar-btn:hover {
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
+}
+
+
 .grey_out {
-    background-color: rgba(97,97,98,0.7);
+    background-color: rgba(119, 119, 119, 0.7);
     /*opacity: 75%;*/
-    color: white;
+    color: var(--clark_white);
 }
 
 .card-title {
@@ -33,7 +46,7 @@
 }
 
 #events_div {
-    background-color: rgba(234,234,235,1);
+    background-color: var(--background_grey);
     /*border: solid;*/
     /*border-color: #d90429;*/
     border-radius: 25px;
@@ -43,11 +56,11 @@
 }
 
 footer {
-    background-color: grey;
+    background-color: var(--footer);
 }
 
 .line {
-    background-color: #d90429;
+    background-color: var(--clark_scarlet);
     height: 4px;
 }
 

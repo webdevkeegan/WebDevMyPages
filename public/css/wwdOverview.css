@@ -1,8 +1,12 @@
+/*done*/
+
 :root {
     /* CSS HEX */
     --background_grey: rgba(234,234,235,1);
     --clark_scarlet: #cc0000;
-    --clark_grey: #939598;
+    --clark_white:#FFF;
+    --footer: #8a8a8a;
+    --offwhiteBg:#edf2f4;
 }
 
 .navbar-nav {
@@ -10,18 +14,19 @@
     padding-right: 2rem;
 }
 
-.navbar-btn:hover {
-    color: #FFF;
-    background-color: #edf2f4 !important;
-    border-color: #edf2f4 !important;
-}
-
-
 .navbar-brand{
     padding-left: 2rem;
-    /*margin-bottom: 1rem;*/
+    margin-bottom: 1rem;
     font-size: large;
 }
+
+.navbar-btn:hover {
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
+
+}
+
 
 .jump {
     width: 33%;
@@ -60,7 +65,7 @@ section  {
 }
 
 #currentProjects, #pastProjs, #pubs_dist {
-    background-color: var(--background_grey);
+    background-color: var(--offwhiteBg);
     /*border: solid 2px var(--clark_scarlet);*/
     /*border-color: #d90429;*/
     border-radius: 25px;
@@ -81,7 +86,7 @@ section  {
     /*border: solid;*/
 }
 #basic-addon2, #search_proj, #searchPub2, #search_pub {
-    border: 2px solid #d90429;
+    border: 2px solid var(--clark_scarlet);
     /*border-color: #d90429;*/
 }
 
@@ -116,7 +121,7 @@ section  {
 }
 
 footer {
-    background-color: var(--clark_grey);
+    background-color: var(--footer);
 }
 
 .carousel-item:hover img {

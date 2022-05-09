@@ -1,6 +1,10 @@
+/*done*/
+
 :root {
     /* CSS HEX */
     --background_grey: rgba(234,234,235,1);
+    --clark_scarlet: #cc0000;
+    --clark_white:#FFF;
 }
 
 #all {
@@ -18,17 +22,19 @@
 
 .navbar-nav {
     margin-left: auto;
+    padding-right: 2rem;
+}
+
+.navbar-brand{
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: large;
 }
 
 .navbar-btn:hover {
-    color: #FFF;
-    background-color: #337AB7 !important;
-    border-color: #2E6DA4 !important;
-}
-.navbar-brand{
-    padding-left: 2rem;
-    /*margin-bottom: 1rem;*/
-    font-size: large;
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
 }
 
 

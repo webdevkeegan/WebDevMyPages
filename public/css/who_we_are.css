@@ -1,3 +1,14 @@
+/*done*/
+
+:root {
+    /* CSS HEX */
+    --background_grey: rgba(234,234,235,1);
+    --clark_scarlet: #cc0000;
+    --clark_white:#FFF;
+    --footer: #8a8a8a;
+    --offwhiteBg:#edf2f4;
+}
+
 #servicesGrid{
     margin: 2rem;
 }
@@ -10,18 +21,6 @@
     display: none;
 }
 
-.highlight{
-    background-color: #07e3ff;
-}
-
-/*.adjustWidth{*/
-/*    font-size: medium;*/
-/*}*/
-
-/*.makeRoundTop{*/
-/*    border-radius: 20%     20%      0           0;*/
-/*    overflow: hidden;*/
-/*}*/
 
 .serviced-img-top{
     width: 65%;
@@ -43,8 +42,8 @@
 }
 
 .services_border{
-    border-color: #d90429;
+    border-color: var(--clark_scarlet);
 }
 footer {
-    background-color: grey;
+    background-color: var(--footer);
 }

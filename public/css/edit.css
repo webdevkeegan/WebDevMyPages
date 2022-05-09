@@ -1,19 +1,20 @@
-:root {
-    /* CSS HEX */
-    --imperial-red: #e63946ff;
-    --honeydew: #f1faeeff;
-    --powder-blue: #a8dadcff;
-    --celadon-blue: #457b9dff;
-    --prussian-blue: #1d3557ff;
-}
+/*done*/
+
 .navbar-nav {
     margin-left: auto;
+    padding-right: 2rem;
+}
+
+.navbar-brand{
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: large;
 }
 
 .navbar-btn:hover {
     color: #FFF;
-    background-color: #337AB7 !important;
-    border-color: #2E6DA4 !important;
+    background-color: #cc0000 !important;
+    border-color: #cc0000 !important;
 }
 
 .big {

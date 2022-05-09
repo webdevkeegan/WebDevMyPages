@@ -1377,3 +1377,201 @@ app.get("/whatwedo", function (req, res) {
     res.sendFile(__dirname + "/public/whatWeDoOverview.html");
 });
 
+
+//---------------Eli's section-------------------------------
+
+//not that data validator allow you to check these fields are inputted correctly by user
+const blogSchema = {
+    title: {
+        type: String,
+        required: [true, "Title cannot be empty"] //this message not returned to front end, returned in terminal
+    },
+    thumbnail: String,
+    date: {
+        type: String,
+        validate: {
+            validator: function (value) {
+                //returns true if value in correct format, otherwise returns false
+                return /\d{4}-\d{2}-\d{2}/.test(value) //regular expression -- d stands for digit (0-9)
+            },
+            message: "Date Format must be yyyy-mm-dd"
+        },
+        category: {
+            type: String,
+            required: [true, "Category cannot be empty"]
+        }
+    },
+    overview: String
+}
+
+const Blog = mongoose.model('Blog', blogSchema);
+
+app.get('/blog', function (req, res) {
+    res.sendFile(__dirname + "/public/blog.html");
+});
+
+//Get all blogs in the db
+app.get("/get_all_blogs", function (req, res) {
+    Blog.find(function (err, data) {
+        if (err) {
+            res.send({
+                "message": "internal database error",
+                "data": []
+            });
+        } else {
+            res.send({
+                "message": "success",
+                "data": data.slice(0, 5)
+            })
+        }
+    });
+});
+
+// Get blog by _id
+app.get('/get_blog_by_id',
+    function (req, res) {
+        // console.log(req.query.blog_id);
+        Blog.find({"_id": req.query.blog_id}, function (err, data) {
+            if (err || data.length === 0) {
+                res.send({
+                    "message": "internal database error",
+                    "data": {}
+                });
+            } else {
+                res.send({
+                    "message": "success",
+                    "data": data[0]
+                })
+            }
+        });
+    });
+
+//Save the blog to the database
+app.post("/save_blog", (req, res) => {
+
+    //create blog object to save -- make sure keys are same as schema
+    const blog = {
+        title: req.body.title,
+        thumbnail: req.body.thumbnail,
+        date: req.body.date,
+        category: req.body.category,
+        overview: req.body.overview
+    }
+    console.log(req.body._id);
+    if (req.body._id) {
+        //update existed blog
+        Blog.updateOne({_id: req.body._id},
+            {$set: blog},
+            //validate matches schema
+            {runValidators: true},
+            (err, info) => {
+                //if update is wrong, same redirect
+                if (err) {
+                    res.redirect('/edit_blog.html?error_message=' + err["message"] + "&input="  //will display error from back end message (from mongoose schema)
+                        + JSON.stringify(blog) + "&blog_id=" + req.body._id) // & input... saves temp data
+                } else {
+                    res.redirect("/blog_blog.html?blog_id=" + req.body._id) //go to individual blog_detail page after creating a new blog
+                }
+            }
+        )
+
+
+    } else {
+        //create new blog
+
+        //create schema
+        const nm = new Blog(blog);
+        nm.save((err, new_blog) => {
+            //new_blog is the blog object being saved to database.
+            //Need to return it to callback function so the auto generated id will be saved
+
+            if (err) {
+                console.log(err);
+                // res.send("Database error")
+
+                //if something is wrong, stay editing blog -- stay here
+                res.redirect('/edit_blog.html?error_message=' + err["message"] + "&input="  //will display error from back end message (from mongoose schema)
+                    + JSON.stringify(blog)) // & input... saves temp data
+            } else {
+                console.log(new_blog._id)
+                res.redirect("/blog_blog.html?blog_id=" + new_blog._id) //go to individual blog_detail page after creating a new blog
+            }
+
+        });
+
+    }
+
+
+});
+
+// Delete blog by id
+app.post('/delete_blog_by_id', (req, res) => {
+    Blog.deleteOne(
+        {"_id": req.body._id},//match from blog_detail.js
+        {},
+        (err) => {
+            if (err) {
+                res.send({
+                    "message": "data base deletion error"
+                })
+            } else {
+                res.send({
+                    "message": "success"
+                })
+            }
+        }
+    )
+});
+
+
+// Delete a list of blogs by id
+app.post('/delete_blog_by_ids', (req, res) => {
+    console.log(req.body._ids) //check server can see list of ids to be deleted from blog.js
+    Blog.deleteMany(
+        {"_id": {$in: req.body._ids}}, //$in is mongoose operator
+        {},
+        (err) => {
+            if (err) {
+                res.send({
+                    "message": "database delete multiple error"
+                })
+            } else {
+                res.send({
+                    "message": "success"
+                })
+            }
+        }
+    )
+});
+
+// Get blogs by keyword and min max rating
+//comes from blog.js
+app.get("/get_blogs_by_filters", (req, res) => {
+    console.log(req.query.search_key) //note: if post then use boy, if get then use query
+    const sk = req.query.search_key;
+
+    Blog.find({
+            $or: [
+                {title: {$regex:sk}},
+                {overview:{$regex:sk}}
+            ]
+        },
+        (err,data)=>{
+            if(err){
+                console.log("search error")
+                res.send({
+                    "message":"error",
+                    "data":[]
+                })
+            }else{
+                console.log(data)
+                res.send({
+                    "message":"success",
+                    "data":data
+                })
+            }
+        }
+
+    );
+
+});

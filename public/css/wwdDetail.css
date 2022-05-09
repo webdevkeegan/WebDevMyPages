@@ -1,28 +1,29 @@
 :root {
     /* CSS HEX */
     --background_grey: rgba(234,234,235,1);
-    --red: #d90429;
+    --clark_scarlet: #cc0000;
+    --clark_white:#FFF;
+    --footer: #8a8a8a;
+    --offwhiteBg:#edf2f4;
 }
 
 .navbar-nav {
     margin-left: auto;
     padding-right: 2rem;
-    /*margin-bottom: 0;*/
-    /*padding-bottom: 0;*/
+}
+
+.navbar-brand{
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: large;
 }
 
 .navbar-btn:hover {
-    color: #FFF;
-    background-color: #edf2f4 !important;
-    border-color: #edf2f4 !important;
-}
-.navbar-brand{
-    padding-left: 2rem;
-    /*margin-bottom: 1rem;*/
-    font-size: large;
-}
-.navbar {
-    background-color: grey;
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
+
+
 }
 
 #all {
@@ -61,11 +62,11 @@ section  {
 }
 
 footer {
-    background-color: grey;
+    background-color:var(--footer);
 }
 
 .line {
-    background-color: #d90429;
+    background-color: var(--clark_scarlet);
     height: 4px;
 }
 

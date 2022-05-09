@@ -1,0 +1,114 @@
+<!--done-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Nav Bar -->
+<section id="nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">HURDL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link active" aria-current="page" href="/">Welcome</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/world">HURDL and the World</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/whatwedo">What We Do</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/who_we_are">Who We Are</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../../../../Downloads/untitled44%202/public/css/index.css">
+
+    <!--    Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+
+    <!--    Google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=RocknRoll+One&display=swap"
+          rel="stylesheet">
+
+    <!--    fontawesome-->
+    <script src="https://kit.fontawesome.com/e5b5eed843.js" crossorigin="anonymous"></script>
+
+    <!--    Google jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="/js/blog.js" defer></script>
+</head>
+<body class="container">
+<section id="blog_section">
+    <div class="input-group mb-3 d-flex justify-content-end">
+            <button class="btn btn-info" onclick="addNewBlog()">Create a New Blog</button>
+            <button class="btn btn-danger" onclick="onDeleteSelected()">Delete Selected Blogs</button>
+            <input id="select_all" type="checkbox" class="btn-check" onclick="onSelectAll()">
+        <!--             this is a check box above, looks like button-->
+            <label class="btn btn-outline-primary" for="select_all">Select all</label>
+        </div>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="input-group mb-3">
+                <input id="search_box" type="search" class="form-control" placeholder="Search blogs..."
+                       aria-label="Search"
+                       aria-describedby="basic-addon2" onsearch="searchBlog()">
+                <span class="input-group-text" id="basic-addon2" onclick="searchBlog()"><i
+                        class="fas fa-search"></i></span>
+            </div>
+            <div>
+                <div class="input-group mb-3 d-flex justify-content-end">
+                    <button class="btn btn-secondary" onclick="searchBlog()">Apply</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <ul id="blog_list" class="list-group">
+
+            </ul>
+        </div>
+    </div>
+    <footer class="text-center text-lg-start">
+        <div class="text-center" >
+            <a class="text-light" href="https://hurdl.org/">© 2020 Copyright: HURDL</a>
+            <a class="text-dark" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+            ></a>
+        </div>
+        <div class="text-center">
+            <a class="text-light" id='login' href="/login">Login</a>
+            <a class="text-light hide" id='logout' href="/logout">Logout</a>
+        </div>
+        <div class="text-center">
+            <a class="text-light hide" id='register' href="/register">Register a new editor</a>
+        </div>
+    </footer>
+</section>
+</body>
+</html>

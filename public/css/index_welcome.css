@@ -1,3 +1,14 @@
+/*done*/
+
+:root {
+    /* CSS HEX */
+    --background_grey: rgba(234,234,235,1);
+    --clark_scarlet: #cc0000;
+    --clark_white:#FFF;
+    --footer: #8a8a8a;
+    --offwhiteBg:#edf2f4;
+}
+
 .navbar-nav {
     margin-left: auto;
     padding-right: 2rem;
@@ -10,9 +21,11 @@
 }
 
 .navbar-btn:hover {
-    color: #FFF;
-    background-color: #cc0000 !important;
-    border-color: #cc0000 !important;
+    color: var(--clark_white) !important;
+    background-color: var(--clark_scarlet) !important;
+    border-color: var(--clark_scarlet) !important;
+
+
 }
 
 
@@ -34,7 +47,7 @@
     position: absolute;
     top: 150px;
     width: 96%;
-    color: #edf2f4;
+    color: var(--clark_white);
 }
 
 .carousel-indicators {
@@ -46,15 +59,12 @@
 }
 
 .offwhite_background{
-    background-color: #edf2f4
+    background-color: var(--offwhiteBg)
 }
 
-.dark_background{
-    background-color: #03071e
-}
 
 .red_background{
-    background-color: #d90429;;
+    background-color: var(--clark_scarlet);;
 }
 
 
@@ -98,7 +108,7 @@
 #partners {
     text-align: center;
     font-family: 'Noto Sans', sans-serif;
-    background-color:#edf2f4 ;
+    background-color:var(--background_grey) ;
 }
 
 #partnerGrid img {
@@ -111,9 +121,9 @@
 
 
 footer {
-    background-color: grey;
+    background-color: var(--footer);
 }
 
 .line{
-    background-color: #cc0000;
+    background-color: var(--clark_scarlet);
 }
