@@ -3,13 +3,25 @@ $('#carousel_inner').empty();
 $('#pastProjList').empty();
 
 function get_carousel_item(proj, count) {
-    return `<div class="carousel-item border border-danger border-2 red_border round" data-l="${proj.location}" id='num${count}'>
-                    <div class="bg-image hover-overlay ripple shadow-1-strong round" data-mdb-ripple-color="light">
-                            <img src=${proj.images[0].url} class="w-100 round" alt="${proj.images[0].description}" id="${proj.name}"/>
-                            <a href="WWDdetail.html?id=${proj.name}">
-                                <div class="mask" style="background-color: rgba(120, 120, 120, 0.7)"></div>
-                            </a>
+    // return `<div class="carousel-item border border-danger border-2 red_border round" data-l="${proj.location}" id='num${count}'>
+    //                 <div class="bg-image hover-overlay ripple shadow-1-strong round" data-mdb-ripple-color="light">
+    //                         <img src=${proj.images[0].url} class="w-100 round" alt="${proj.images[0].description}" id="${proj.name}"/>
+    //                         <a href="WWDdetail.html?id=${proj.name}">
+    //                             <div class="mask" style="background-color: rgba(120, 120, 120, 0.7)"></div>
+    //                         </a>
+    //                     </div>
+    //             <div class="carousel-caption d-none d-md-block">
+    //                 <h5 class="grey_out m-3 p-1">${proj.name}</h5>
+    //                 <button type="button" class="btn btn-primary proj hide" data-l="${proj.name}">Edit</button>
+    //                 <button type="button" class="btn btn-danger projDelete hide" data-l="${proj.name}">Delete</button>
+    //             </div>
+    //         </div>`
+       return `<div class="carousel-item border border-danger border-2 red_border round" data-l="${proj.location}" id='num${count}'>
+                    <div class="bg-image round">
+<!--                    <a href="WWDdetail.html?id=${proj.name}"-->
+                            <img src=${proj.images[0].url} class="w-100 round" onclick="detail('${proj.name}')" alt="${proj.images[0].description}" id="${proj.name}"/>
                         </div>
+<!--                        </a>-->
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="grey_out m-3 p-1">${proj.name}</h5>
                     <button type="button" class="btn btn-primary proj hide" data-l="${proj.name}">Edit</button>
@@ -18,41 +30,60 @@ function get_carousel_item(proj, count) {
             </div>`
 }
 
+
 function get_carousel_indic(num) {
     return `<button type='button' data-bs-target="#projCarousel" data-bs-slide-to=${num} aria-label="Slide ${num}" id="indic${num}"></button>`
 }
 
 function get_past_proj(proj) {
     return `<div class="col pastProj mb-3 h-100" data-l="${proj.location}" data-d="${proj.description}">
-                <div class="card border border-danger red_border bg-image hover-overlay ripple">
-<!--                     <div class="bg-image ">-->
-                             <img src=${proj.images[0].url} class="card-img w-100" alt="${proj.images[0].description}" id="${proj.name}"/>
-                        
-<!--                         </div>-->
+                <div class="card border border-danger red_border round" onclick="detail('${proj.name}')">
+<!--                    <a href = "WWDdetail.html?id=${proj.name}">-->
+                             <img src=${proj.images[0].url} class="card-img w-100 round"  alt="${proj.images[0].description}" id="${proj.name}"/>
+<!--                    </a>-->
                     <div class="card-img-overlay text-center d-flex align-items-end justify-content-center">
                         <h3 class="card-title pastProjName grey_out m-3 p-1">
                             ${proj.name}
                         </h3>
-                       
+
                     </div>
 
-                     <a href="WWDdetail.html?id=${proj.name}">
-                          <div class="mask" style="background-color: rgba(120, 120, 120, 0.7)">
-                          <div class="card-img-overlay text-center d-flex align-items-end justify-content-center">
-                        <h3 class="card-title pastProjName grey_out m-3 p-1">
-                            ${proj.name}
-                        </h3>
-                       
-                    </div>
-                    
-</div>
-                     </a>
-                     
                 </div>
 <button type="button" class="btn btn-primary btn-sm proj hide" data-l="${proj.name}">Edit</button>
                         <button type="button" class="btn btn-danger btn-sm projDelete hide" data-l="${proj.name}">Delete</button>
             </div>
     `
+//     return `<div class="col pastProj mb-3 h-100" data-l="${proj.location}" data-d="${proj.description}">
+//                 <div class="card border border-danger red_border bg-image">
+//                          <img src=${proj.images[0].url} class="card-img w-100" alt="${proj.images[0].description}" id="${proj.name}"/>
+//                     <div class="card-img-overlay text-center d-flex align-items-end justify-content-center">
+//                         <h3 class="card-title pastProjName grey_out m-3 p-1">
+//                             ${proj.name}
+//                         </h3
+//                     </div>
+//
+//                      <a href="WWDdetail.html?id=${proj.name}">
+//                           <div class="mask" style="background-color: rgba(120, 120, 120, 0.7)">
+//                           <div class="card-img-overlay text-center d-flex align-items-end justify-content-center">
+//                         <h3 class="card-title pastProjName grey_out m-3 p-1">
+//                             ${proj.name}
+//                         </h3>
+//
+//                     </div>
+//
+// </div>
+//                      </a>
+//
+//                 </div>
+// <button type="button" class="btn btn-primary btn-sm proj hide" data-l="${proj.name}">Edit</button>
+//                         <button type="button" class="btn btn-danger btn-sm projDelete hide" data-l="${proj.name}">Delete</button>
+//             </div>
+//     `
+}
+
+function detail(proj) {
+    console.log(proj)
+    location.href="WWDdetail.html?id=" + proj;
 }
 
 function get_pub_dis(item) {
@@ -254,6 +285,11 @@ function search_projs() {
         }
     })
 }
+
+
+// $('.navbar-nav>li>a').on('click', function(){
+//     $('.navbar-collapse').collapse('hide');
+// });
 
 function searchCit() {
     console.log("search citations and publications")

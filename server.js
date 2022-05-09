@@ -367,8 +367,8 @@ app.post('/new-person', (req, res) => {
         //UPDATE THIS
     }
 
-    peopleList = peopleList.filter((service) => { //make sure no duplicates, remove old service (overwrites)
-        if (service.service === req.body.person_to_be_added) {
+    peopleList = peopleList.filter((person) => { //make sure no duplicates, remove old service (overwrites)
+        if (person.name === req.body.person_to_be_added) {
             //UPDATE THIS
             return false;
         } else {
