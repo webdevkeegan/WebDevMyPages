@@ -50,3 +50,11 @@ footer {
     background-color: #d90429;
     height: 4px;
 }
+
+.carousel-item:hover img {
+    opacity: 0.7;
+}
+
+.card:hover img {
+    opacity: 0.7;
+}

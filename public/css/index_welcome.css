@@ -11,9 +11,10 @@
 
 .navbar-btn:hover {
     color: #FFF;
-    background-color: #edf2f4 !important;
-    border-color: #edf2f4 !important;
+    background-color: #cc0000 !important;
+    border-color: #cc0000 !important;
 }
+
 
 #carousel img {
     height: 400px;
@@ -113,3 +114,6 @@ footer {
     background-color: grey;
 }
 
+.line{
+    background-color: #cc0000;
+}

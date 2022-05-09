@@ -18,15 +18,15 @@
     <!--    Datepicker-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-    <!-- MDB -->
-    <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
-            rel="stylesheet"
-    />
-    <script
-            type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
-    ></script>
+<!--     MDB -->
+<!--    <link-->
+<!--            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"-->
+<!--            rel="stylesheet"-->
+<!--    />-->
+<!--    <script-->
+<!--            type="text/javascript"-->
+<!--            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"-->
+<!--    ></script>-->
 
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
     <!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
@@ -45,41 +45,56 @@
 <body>
 <!-- Nav Bar -->
 <section id="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white ml-auto">
-        <a class="navbar-brand" href="#">HURDL</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active navbar-btn" aria-current="page" href="/">Welcome</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/world">HURDL and the World</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/whatwedo">What We Do</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/who_we_are">Who We Are</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/">Blog</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">HURDL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/world">HURDL and the World</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/whatwedo">What We Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/who_we_are">Who We Are</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
+
+
 </section>
 <section id="all" class="justify-content-center">
 <!--    <h1>What We Do</h1>-->
     <section id="pageNavigation">
-<!--        <div class="row justify-content-center">-->
-<!--            <div class="col-3">-->
-<!--                <button type="button" class="btn btn-outline-danger" id="curProjJump" data-l="currentProjects">Current Projects</button>-->
-<!--            </div>-->
-<!--            <div class="col-3">-->
-<!--                <button type="button" class="btn btn-outline-danger" id="pastProjJump" data-l="pastProjs">Completed Projects</button>-->
-<!--            </div>-->
-<!--            <div class="col-3">-->
-<!--                <button type="button" class="btn btn-outline-danger" id="pubsDisProjJump" data-l="pubs_dist">Publications and Dissertations</button>-->
-<!--            </div>-->
-<!--        </div>-->
-        <div class="d-block gap-2">
-                <button type="button" class="btn btn-outline-danger jump" id="curProjJump" data-l="currentProjects">Current Projects</button>
-                <button type="button" class="btn btn-outline-danger jump" id="pastProjJump" data-l="pastProjs">Completed Projects</button>
-                <button type="button" class="btn btn-outline-danger jump" id="pubsDisProjJump" data-l="pubs_dist">Publications and Dissertations</button>
+        <div class="d-block gap-2 mb-2">
+                <button type="button" class="btn btn-outline-danger border-2 jump mb-1" id="curProjJump" data-l="currentProjects">Current Projects</button>
+                <button type="button" class="btn btn-outline-danger border-2 jump mb-1" id="pastProjJump" data-l="pastProjs">Completed Projects</button>
+                <button type="button" class="btn btn-outline-danger border-2 jump mb-1" id="pubsDisProjJump" data-l="pubs_dist">Publications and Dissertations</button>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-lg-3 col-sm-12 mb-2 me-1 p-2">
+            <div class="input-group p-0">
+                <input id="search_proj" type="search" class="form-control border border-2 border-danger" placeholder="Search projects"
+                       aria-label="Search"
+                       aria-describedby="basic-addon2">
+                <button class="input-group-text border border-2 border-danger" id="basic-addon2" onclick="search_projs()"><i
+                        class="fas fa-search"></i></button>
+            </div>
+            </div>
         </div>
     </section>
     <button class="btn btn-primary hide" id="newProj" data-l="">Add a new project</button>
@@ -103,38 +118,11 @@
             </div>
         </div>
     </section>
-
     <section id="pastProjs">
-<!--        <div class="d-flex align-items-bottom justify-content-between">-->
-<!--                <div class="d-flex"><h1>Completed Projects</h1></div>-->
-<!--            <div class="d-flex">-->
-<!--                <div class="input-group">-->
-<!--                    <input id="search_proj" type="search" class="form-control" placeholder="Search projects"-->
-<!--                           aria-label="Search"-->
-<!--                           aria-describedby="basic-addon2">-->
-<!--                    <button class="input-group-text" id="basic-addon2" onclick="search_projs()"><i-->
-<!--                            class="fas fa-search"></i></button>-->
-<!--                </div>-->
-<!--            </div>-->
-
-        </div>
-        <div class="row d-flex align-items-bottom">
-            <div class="offset-lg-3 col-lg-6 col-sm-12">
-                <h1>Completed Projects</h1>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="input-group">
-                    <input id="search_proj" type="search" class="form-control" placeholder="Search projects"
-                           aria-label="Search"
-                           aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="basic-addon2" onclick="search_projs()"><i
-                            class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div>
+        <h1>Completed Projects</h1>
         <hr class="line">
         <div class="container">
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2" id="pastProjList">
+            <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2" id="pastProjList">
 
             </div>
         </div>
@@ -142,13 +130,13 @@
 
     <section id="pubs_dist">
         <div class="row d-flex align-items-center" id="searchDiv2">
-            <div class="offset-lg-3 col-lg-6 col-sm-12" id="help">
+            <div class="offset-lg-3 col-lg-6 col-sm-12">
                 <div class="container">
                     <h1>Publications and Dissertations</h1>
                     <button class="btn btn-primary hide" id="newCit" data-l="">Add a new Publication or Dissertation</button>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6" id="help2">
+            <div class="col-lg-3 offset-lg-0 offset-sm-2 col-sm-8 col-xs-8">
                 <div class="input-group mb-3">
                     <input id="search_pub" type="search" class="form-control" placeholder="Search" aria-label="Search"
                            aria-describedby="basic-addon2">
@@ -173,7 +161,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="text-center text-lg-start">
+<<footer class="text-center text-lg-start">
     <div class="text-center">
         <a class="text-light" href="https://hurdl.org/">© 2022 Copyright: HURDL</a>
         <a class="text-dark" href="https://twitter.com/hurdltweet" role="button"
@@ -181,7 +169,7 @@
         ></a>
     </div>
     <div class="text-center">
-        <!--        <a class="text-light" id='login' href="login.html">Login</a>-->
+<!--        <a class="text-light" id='login' href="login.html">Login</a>-->
         <a class="text-light hide" id='logout' href="/logout">Logout</a>
     </div>
     <div class="text-center">

@@ -24,9 +24,8 @@
 
 
     <!--    connect JS files-->
-<!--    <script src="js/partnersData.js" defer></script>-->
+    <!--    <script src="js/partnersData.js" defer></script>-->
     <script src="js/welcomePage/index_welcome.js" defer></script>
-
 
 
 </head>
@@ -34,19 +33,32 @@
 
 <!-- Nav Bar -->
 <section id="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white ml-auto">
-        <a class="navbar-brand" href="#">HURDL</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active navbar-btn" aria-current="page" href="/">Welcome</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/world">HURDL and the World</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/whatwedo">What We Do</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/who_we_are">Who We Are</a>
-                <a class="nav-link active navbar-btn" aria-current="page" href="/">Blog</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">HURDL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link active" aria-current="page" href="/">Welcome</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/world">HURDL and the World</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/whatwedo">What We Do</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/who_we_are">Who We Are</a>
+                    </li>
+                    <li class="nav-item navbar-btn">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -63,10 +75,12 @@
 
         <div class="carousel-inner ">
             <div class="carousel-item active " data-bs-interval="10000">
-                <img src="http://www.hurdl.org/wp-content/uploads/2014/12/cropped-PC250023-e1419913305100.jpg" class="d-block w-100" alt="placeholder1">
+                <img src="http://www.hurdl.org/wp-content/uploads/2014/12/cropped-PC250023-e1419913305100.jpg"
+                     class="d-block w-100" alt="placeholder1">
             </div>
             <div class="carousel-item" data-bs-interval="10000">
-                <img src="http://www.hurdl.org/wp-content/uploads/2014/12/cropped-CIMG0196-e1419913479788.jpg" class="d-block w-100" alt="placeholder2">
+                <img src="http://www.hurdl.org/wp-content/uploads/2014/12/cropped-CIMG0196-e1419913479788.jpg"
+                     class="d-block w-100" alt="placeholder2">
             </div>
             <div class="main-text hidden-xs">
                 <div class="col-md-12 text-center">
@@ -91,24 +105,29 @@
 
 <section id="aboutus">
 
-<!--    hide this unless a user is logged in -->
+    <!--    hide this unless a user is logged in -->
     <a href=/new-aboutUs class="btn edit_btn_aboutUs btn-success hide">Edit blurb</a>
 
     <div class="row">
         <div class="col-lg-5 mt-md-12 col-sm-12  offwhite_background px-3 makeRoundTop">
-            <h1>About Us</h1>
 
+            <h1>About Us</h1>
+            <hr class="line">
             <div id="aboutUsText"></div>
+
         </div>
         <div id="gmap" class="col-md-7  mt-md-12">
             <h1>Where We Work</h1>
             <br>
             <div>
                 <!--                style="filter: grayscale(95%);"-->
-<!--                <iframe class="makeRoundTop"-->
-<!--                        src="https://www.google.com/maps/d/u/0/embed?mid=12DPZ9WfbfaWXiJJtuOhBzG1DQIYyq7eE&ehbc=2E312F"-->
-<!--                        width="640" height="450"></iframe>-->
-                <iframe class="makeRoundTop" src="https://www.google.com/maps/d/u/0/embed?mid=12DPZ9WfbfaWXiJJtuOhBzG1DQIYyq7eE&ehbc=2E312F" width="640" height="480"></iframe>    </div>
+                <!--                <iframe class="makeRoundTop"-->
+                <!--                        src="https://www.google.com/maps/d/u/0/embed?mid=12DPZ9WfbfaWXiJJtuOhBzG1DQIYyq7eE&ehbc=2E312F"-->
+                <!--                        width="640" height="450"></iframe>-->
+                <iframe class="makeRoundTop"
+                        src="https://www.google.com/maps/d/u/0/embed?mid=12DPZ9WfbfaWXiJJtuOhBzG1DQIYyq7eE&ehbc=2E312F"
+                        width="640" height="480"></iframe>
+            </div>
 </section>
 <br>
 <section id="partners">
@@ -129,7 +148,7 @@
         ></a>
     </div>
     <div class="text-center">
-                <a class="text-light" id='login' href="login.html">Login</a>
+        <a class="text-light" id='login' href="login.html">Login</a>
         <a class="text-light hide" id='logout' href="/logout">Logout</a>
     </div>
     <div class="text-center">
