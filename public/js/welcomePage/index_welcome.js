@@ -111,6 +111,18 @@ $.getJSON("data/partnersData.json", () => {
         })
     });
 
+    //blank form
+    $('#addNEWpartner').on('click', function () {
+        // console.log($(this).attr('value'));
+
+        //sends person's name as id
+        $.post('/set_partner_id', {partnerName: ""}).done((data) => {
+            if (data.message === "success") {
+                location.href = "/new-partner"
+            }
+        })
+    });
+
 
 });
 

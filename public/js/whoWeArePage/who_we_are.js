@@ -83,7 +83,22 @@ $.getJSON("data/servicesProvided.json", () => {
                 location.href = "/new-service"
             }
         })
-    })
+    });
+
+    //blank form
+    $('#addNEWService').on('click', function () {
+        // console.log($(this).attr('value'));
+
+        //sends person's name as id
+        $.post('/set_service_id', {serviceName: ""}).done((data) => {
+            if (data.message === "success") {
+                location.href = "/new-service"
+            }
+        })
+    });
+
+
+
 
 
 });
@@ -122,6 +137,18 @@ $.getJSON("data/people.json", () => {
 
         //sends person's name as id
         $.post('/set_person_id', {personName: person.name}).done((data) => {
+            if (data.message === "success") {
+                location.href = "/new-person"
+            }
+        })
+    });
+
+    //blank form
+    $('#addNEWperson').on('click', function () {
+        // console.log($(this).attr('value'));
+
+        //sends person's name as id
+        $.post('/set_person_id', {personName: ""}).done((data) => {
             if (data.message === "success") {
                 location.href = "/new-person"
             }
