@@ -1,8 +1,10 @@
 $('form').on('submit', function () {
     let errorMessage = null
     $.each($('input,textarea'), function () {
+        // console.log($(this))
         if (!$(this).val()) {
-            if ($(this).parent().find('label') === 'description' || $(this).parent().find('label') === 'name' || $(this).parent().find('label') === 'date'|| $(this).parent().find('label') === 'image_url_1') {
+            console.log($(this).attr('class'))
+            if ($(this).attr('class').includes('required')|| $(this).attr('id') === 'image_url_1' || $(this).attr('id') === 'image_desc_1') {
                 errorMessage = `${$(this).parent().find('label').text()} cannot be empty`;
                 return false
             }
@@ -55,7 +57,7 @@ function load_event(event) {
 let id = ''
 
 $(document).ready(() => {
-    for (const x of Array(10).keys()) {
+    for (const x of Array(5).keys()) {
         //console.log(x)
         load_form(x + 1)
     }
@@ -78,10 +80,10 @@ $(document).ready(() => {
 
 
 function onDelete() {
-    $.post('/delete_item', {name: id}).done(
+    $.post('/delete_event', {name: id}).done(
         (data) => {
             if(data.message=== "success") {
-                location.href="/whatwedo"
+                location.href="/world"
             }
             else {
                 location.reload();

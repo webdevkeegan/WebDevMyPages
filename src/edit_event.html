@@ -29,32 +29,19 @@
 
 <!-- Nav Bar -->
 <section id="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">HURDL</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Welcome</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/world">HURDL and the World</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/whatwedo">What We Do</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/who_we_are">Who We Are</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog">Blog</a>
-                    </li>
-                </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white ml-auto">
+        <a class="navbar-brand" href="#">HURDL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active navbar-btn" aria-current="page" href="/">Welcome</a>
+                <a class="nav-link active navbar-btn" aria-current="page" href="/world">HURDL and the World</a>
+                <a class="nav-link active navbar-btn" aria-current="page" href="/whatwedo">What We Do</a>
+                <a class="nav-link active navbar-btn" aria-current="page" href="/public/who_we_are.html">Who We Are</a>
+                <a class="nav-link active navbar-btn" aria-current="page" href="/">Blog</a>
             </div>
         </div>
     </nav>
@@ -67,19 +54,19 @@
             <div class="col-12" id="newOnly">
                 <div class="mb-3">
                     <label for="nameForm" class="form-label">Event Name</label>
-                    <input type="text" class="form-control" id="nameForm" placeholder="Event Name" name="nameForm">
+                    <input type="text" class="form-control required" id="nameForm" placeholder="Event Name" name="nameForm">
                 </div>
             </div>
             <div class="col-12">
                 <div class="mb-3">
                     <label for="date" class="form-label">Date</label>
-                    <input type="text" class="form-control" id="date" name="date">
+                    <input type="text" class="form-control required" id="date" name="date">
                 </div>
             </div>
             <div class="col-12">
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control big" id="description" placeholder="..." name="description"></textarea>
+                    <textarea class="form-control big required" id="description" placeholder="..." name="description"></textarea>
                 </div>
             </div>
             <h1>Images</h1>

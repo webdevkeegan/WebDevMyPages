@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+
 const uri = process.env.MONGODB_URI;
 
 app.use(express.static(__dirname + "/public"));
@@ -1308,8 +1309,9 @@ app.get("/edit_event", (req, res) => {
 
 app.post("/edit_event", (req, res) => {
     let name = ""
-    if (req.body.name) {
-        name = req.body.name
+    console.log(req.body)
+    if (req.body.nameForm) {
+        name = req.body.nameForm
         event_id = name;
     } else {
         name = event_id
@@ -1327,7 +1329,7 @@ app.post("/edit_event", (req, res) => {
         ]
     }
     const num = events.findIndex(event => event.name === name)
-    // events.findIndex(num)
+    console.log(eventItem)
     events = events.filter((event) => {
         if (event.name === eventItem.name) {
             return false; // to delete
@@ -1343,7 +1345,6 @@ app.post("/edit_event", (req, res) => {
                 res.redirect('/edit_event')
             } else {
                 res.redirect('/event_detail.html?id=' + event_id);
-                // WWDdetail.html?id=' + proj_id
             }
         })
 });
@@ -1367,7 +1368,6 @@ app.post("/delete_event", (req, res) => {
             }
         })
 });
-
 // send files
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/public/index_welcome.html");

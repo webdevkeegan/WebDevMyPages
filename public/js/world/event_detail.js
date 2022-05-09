@@ -32,10 +32,31 @@ function load_event(event) {
 
 }
 
+const query_string = window.location.search;
+const url_params = new URLSearchParams(query_string);
+const id = url_params.get('id');
+
+$('.edit').on('click', function () {
+    const event = $(this).attr('data-l');
+    $.post('/set_event_id', {id: id}).done((data) => {
+        if (data.message === "success") {
+            location.href = "/edit_event"
+        }
+    })
+})
+$('.delete').on('click', function () {
+    const event = $(this).attr('data-l');
+    $.post('/delete_event', {id: id}).done(() => {
+        //location.reload()
+        location.href = "/world"
+        // if (data.message === "success") {
+        //     location.reload()
+        // }
+    })
+})
+
+
 $(document).ready(() => {
-    const query_string = window.location.search;
-    const url_params = new URLSearchParams(query_string);
-    const id = url_params.get('id');
     if(id) {
         $.getJSON('/get_event_by_id?id=' + id)
             .done((data) => {
